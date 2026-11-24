@@ -1,0 +1,251 @@
+/* Minimal slide deck styling — mirrors the PowerPoint look */
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --body: #333;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --card: #fff;
+  --accent: #2b5ce6;
+  --mono: Consolas, "SFMono-Regular", Menlo, monospace;
+  --sans: Arial, Helvetica, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background: #ececec;
+  color: var(--body);
+  font-family: var(--sans);
+  overflow: hidden;
+}
+
+/* Deck: one 16:9 slide shown at a time, scaled to fit the window */
+.deck {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide {
+  position: absolute;
+  width: min(100vw, calc(100vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: var(--bg);
+  padding: 6% 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(24px);
+  transition: opacity .35s ease, transform .35s ease, visibility .35s;
+  overflow: hidden;
+  font-size: clamp(11px, 1.9vw, 20px);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.04);
+}
+.slide.active { opacity: 1; visibility: visible; transform: none; }
+.slide.past { transform: translateX(-24px); }
+
+.kicker {
+  font-size: .6em;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 .6em;
+}
+h1, h2, h3 { color: var(--fg); margin: 0; }
+h2 {
+  font-size: 2.1em;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  padding-bottom: .35em;
+  margin-bottom: .9em;
+  position: relative;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 2.2em; height: 3px;
+  background: var(--accent);
+}
+h2.display { font-size: 3.4em; }
+h3 { font-size: 1.15em; font-weight: 700; margin-bottom: .4em; }
+p { margin: 0; line-height: 1.5; }
+ul, ol { margin: 0; padding-left: 1.2em; line-height: 1.5; }
+li { margin-bottom: .55em; font-size: 1.15em; }
+
+/* Title slide */
+.title-slide { justify-content: center; }
+.title-slide .display {
+  font-size: 3.2em;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin: 0 0 .4em;
+  color: var(--fg);
+}
+.title-slide .lead { font-size: 1.25em; color: var(--muted); }
+
+.agenda { list-style: none; padding: 0; counter-reset: a; }
+.agenda li {
+  counter-increment: a;
+  font-size: 1.25em;
+  padding: .35em 0;
+  border-bottom: 1px solid var(--line);
+}
+.agenda li::before {
+  content: counter(a, decimal-leading-zero);
+  color: var(--accent);
+  font-weight: 700;
+  display: inline-block;
+  width: 2.2em;
+}
+.steps { list-style: none; padding: 0; counter-reset: s; }
+.steps li {
+  counter-increment: s;
+  padding-left: 2.2em;
+  position: relative;
+}
+.steps li::before {
+  content: counter(s);
+  position: absolute; left: 0; top: 0;
+  width: 1.6em; height: 1.6em;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 50%;
+  font-size: .8em;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding-left: 1.6em; position: relative; }
+.checklist li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+/* Flow diagram */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .4em;
+  margin: .6em 0 1.4em;
+}
+.node {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: .7em .9em;
+  font-size: .9em;
+  font-weight: 700;
+  color: var(--fg);
+  text-align: center;
+  min-width: 6.2em;
+  display: flex; flex-direction: column; gap: .2em;
+}
+.node small { font-weight: 400; font-size: .75em; color: var(--muted); }
+.arrow { color: var(--muted); font-size: 1.1em; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: .85em; }
+th, td { text-align: left; padding: .55em .6em; border-bottom: 1px solid var(--line); vertical-align: middle; }
+th {
+  font-size: .72em;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  background: transparent;
+  border-bottom: 1px solid #bbb;
+}
+td:first-child { font-weight: 700; color: var(--fg); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; }
+.cards.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1.1em 1.2em;
+  font-size: .9em;
+}
+.card p { color: var(--body); }
+.tag {
+  display: inline-block;
+  font-size: .62em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .6em;
+  font-weight: 700;
+}
+
+/* Notes, code, definitions */
+.note {
+  margin-top: auto;
+  border-left: 3px solid var(--accent);
+  padding: .3em .9em;
+  font-style: italic;
+  color: var(--body);
+  font-size: .95em;
+}
+pre {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1em 1.2em;
+  margin: 0;
+  overflow: auto;
+  font-size: .8em;
+  line-height: 1.5;
+}
+code { font-family: var(--mono); }
+
+.threats { margin: 0; display: grid; grid-template-columns: 14em 1fr; gap: .75em 1.2em; align-items: baseline; }
+.threats dt { font-weight: 700; color: var(--fg); font-size: .95em; }
+.threats dd { margin: 0; font-size: .95em; line-height: 1.45; }
+
+/* Controls */
+.controls {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--muted);
+  opacity: .25;
+  transition: opacity .25s;
+  z-index: 10;
+}
+.controls:hover, .controls:focus-within { opacity: 1; }
+.controls button {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  width: 34px; height: 30px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.controls button:hover { border-color: var(--accent); color: var(--accent); }
+.controls button:disabled { opacity: .3; cursor: default; }
+#counter { min-width: 4em; text-align: center; font-variant-numeric: tabular-nums; }
+
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: transparent; z-index: 10; }
+#bar { height: 100%; width: 0; background: var(--accent); transition: width .35s ease; }
+
+@media (max-width: 700px) {
+  .cards, .cards.grid-2 { grid-template-columns: 1fr; }
+  .threats { grid-template-columns: 1fr; }
+}
+@media print {
+  body { overflow: visible; background: #fff; }
+  .deck { position: static; display: block; }
+  .slide { position: relative; opacity: 1; visibility: visible; transform: none; width: 100%; height: 100vh; page-break-after: always; }
+  .controls, .progress { display: none; }
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with AI in a Dev Team</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="deck" id="deck">
+
+    <!-- 1 Title -->
+    <section class="slide title-slide">
+      <p class="kicker">Team session</p>
+      <h1 class="display">Getting Started with AI in a Dev Team</h1>
+      <p class="lead">Harnesses, models, skills, agents, permissions, and how we start safely.</p>
+    </section>
+
+    <!-- 2 Agenda -->
+    <section class="slide">
+      <p class="kicker">Overview</p>
+      <h2>Agenda</h2>
+      <ol class="agenda">
+        <li>Harness and models</li>
+        <li>Best models: quality vs price</li>
+        <li>Local vs cloud models</li>
+      <li>Balanced workflow: when to use each</li>
+      <li>Local vs cloud models</li>
+      <li>Balanced workflow: when to use each</li>
+      <li>Skills, tasks, agents, setup</li
+        <li>Popular harnesses</li>
+        <li>Permissions and security</li>
+        <li>Before we start: team ground rules</li>
+        <li>4-week rollout and next steps</li>
+      </ol>
+    </section>
+
+    <!-- 3 Harness vs model -->
+    <section class="slide">
+      <p class="kicker">1 · Foundations</p>
+      <h2>What is a harness? What is a model?</h2>
+      <div class="flow">
+        <div class="node">You</div><span class="arrow">→</span>
+        <div class="node">Harness<small>runtime, tools, permissions</small></div><span class="arrow">→</span>
+        <div class="node">Model<small>generates text and code</small></div><span class="arrow">→</span>
+        <div class="node">Tools<small>files, shell, git, web</small></div><span class="arrow">→</span>
+        <div class="node">Our repo</div>
+      </div>
+      <ul>
+        <li><strong>Model:</strong> decides how good the answer is (Claude, GPT, Gemini, DeepSeek, Qwen…)</li>
+        <li><strong>Harness:</strong> decides what the agent can touch and how safely it works</li>
+      </ul>
+    </section>
+
+    <!-- 4 Models table -->
+    <section class="slide">
+      <p class="kicker">2 · Models</p>
+      <h2>Popular models: quality vs price</h2>
+      <table>
+        <thead><tr><th>Family</th><th>Strength</th><th>Relative cost</th><th>Good for</th></tr></thead>
+        <tbody>
+          <tr><td>Claude Opus</td><td>Top reasoning, large refactors</td><td>High</td><td>Architecture, hard bugs, planning</td></tr>
+          <tr><td>Claude Sonnet</td><td>Best quality per dollar for code</td><td>Medium</td><td>Daily feature work, reviews</td></tr>
+          <tr><td>Claude Haiku</td><td>Fast and cheap</td><td>Low</td><td>Small edits, subagent tasks</td></tr>
+          <tr><td>GPT-5 family</td><td>Strong general and coding; mini tiers</td><td>Medium to low</td><td>Broad use, cost-sensitive jobs</td></tr>
+          <tr><td>Gemini Pro / Flash</td><td>Very large context, good value</td><td>Medium to low</td><td>Big codebases and docs</td></tr>
+          <tr><td>DeepSeek</td><td>Open weights, very low price</td><td>Very low</td><td>Bulk work, budget, self-hosting</td></tr>
+          <tr><td>Qwen3-Coder / Kimi K2</td><td>Strong open coding models</td><td>Very low</td><td>Privacy-sensitive setups</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Prices and rankings change often. Verify on provider sites before budgeting.</p>
+    </section>
+
+    <!-- 5 Model strategy -->
+    <section class="slide">
+      <p class="kicker">2 · Models</p>
+      <h2>Model strategy: pick by task, not by hype</h2>
+      <div class="cards">
+        <article class="card"><span class="tag">Expensive</span><h3>Best quality</h3><p>Top Opus or GPT-5 class. Planning, architecture, tricky debugging.</p></article>
+        <article class="card"><span class="tag">Default</span><h3>Best value</h3><p>Sonnet, GPT-5 mid tier, Gemini Pro. Most daily coding happens here.</p></article>
+        <article class="card"><span class="tag">Bulk</span><h3>Cheap and fast</h3><p>Haiku, mini, Flash, DeepSeek. Search, tests, boilerplate, subagents.</p></article>
+      </div>
+      <p class="note">Mix models: strong model to plan and review, cheap model to execute repetitive steps.</p>
+    </section>
+
+    <!-- 5b Local vs cloud -->
+    <section class="slide">
+      <p class="kicker">2 · Models</p>
+      <h2>Local models vs cloud models</h2>
+      <div class="cards grid-2">
+        <article class="card">
+          <span class="tag">Local / self-hosted</span>
+          <h3>Run on your own machine</h3>
+          <p>Open-weight models (DeepSeek, Qwen, Kimi, Llama) served via Ollama, vLLM, or a private server.</p>
+          <ul>
+            <li>Zero data leaves the machine</li>
+            <li>No per-token billing</li>
+            <li>Slower, less capable than top cloud models</li>
+            <li>Needs hardware and maintenance</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag">Cloud / API</span>
+          <h3>Provider runs the model</h3>
+          <p>Claude, GPT, Gemini, and others via API or managed plans.</p>
+          <ul>
+            <li>Best quality and fastest improvement</li>
+            <li>Pay per use; cost scales with usage</li>
+            <li>Code may leave your network</li>
+            <li>Check retention and training terms</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">Local is for privacy and cost at scale. Cloud is for quality and speed. We use both.</p>
+    </section>
+
+    <!-- 5c Balanced workflow -->
+    <section class="slide">
+      <p class="kicker">2 · Models</p>
+      <h2>Balanced workflow: when to use each</h2>
+      <div class="cards grid-2">
+        <article class="card">
+          <h3>Local first</h3>
+          <p>Chat sessions, questions, and small edits.</p>
+          <ul>
+            <li>Quick questions and brainstorming</li>
+            <li>Explaining existing code</li>
+            <li>Boilerplate and scaffolding</li>
+            <li>Anything with no secrets and no need for top quality</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Cloud first</h3>
+          <p>Hard work that needs the strongest model.</p>
+          <ul>
+            <li>Planning architecture and large refactors</li>
+            <li>Tricky bugs and security-sensitive logic</li>
+            <li>Reviewing PRs and writing tests</li>
+            <li>Anything where the answer must be right</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note">Rule of thumb: local for speed and privacy, cloud for quality. Escalate when the task gets hard or sensitive.</p>
+    </section>
+
+    <!-- 6 Concepts -->
+    <section class="slide">
+      <p class="kicker">3 · Concepts</p>
+      <h2>Task, skill, agent, and project memory</h2>
+      <div class="cards grid-2">
+        <article class="card"><h3>Task</h3><p>One bounded unit of work with a clear definition of done. Small tasks succeed more often.</p></article>
+        <article class="card"><h3>Skill</h3><p>Reusable instructions (SKILL.md): how we write migrations, run E2E tests, and so on.</p></article>
+        <article class="card"><h3>Agent (subagent)</h3><p>Separate context with its own role, tools, and model. E.g. a read-only reviewer.</p></article>
+        <article class="card"><h3>AGENTS.md</h3><p>Project memory: commands, conventions, folder layout, and do-not rules. Read at every session start.</p></article>
+      </div>
+    </section>
+
+    <!-- 7 Dev loop -->
+    <section class="slide">
+      <p class="kicker">3 · Concepts</p>
+      <h2>The basic AI-assisted development loop</h2>
+      <div class="flow">
+        <div class="node">Write task</div><span class="arrow">→</span>
+        <div class="node">Plan<small>strong model</small></div><span class="arrow">→</span>
+        <div class="node">Implement<small>on a branch</small></div><span class="arrow">→</span>
+        <div class="node">Run tests<small>and lint</small></div><span class="arrow">→</span>
+        <div class="node">Review<small>agent + human</small></div><span class="arrow">→</span>
+        <div class="node">Pull request</div>
+      </div>
+      <ul>
+        <li>Every AI change goes through a branch, tests, and human review</li>
+        <li>Same CI and same definition of done as human-written code</li>
+      </ul>
+    </section>
+
+    <!-- 8 Starter setup -->
+    <section class="slide">
+      <p class="kicker">3 · Concepts</p>
+      <h2>Minimal starter setup</h2>
+      <ol class="steps">
+        <li>Pick one harness and one default model for the team</li>
+        <li>Add AGENTS.md to each repo: stack, commands, style rules, forbidden paths</li>
+        <li>Create 2 to 3 skills for your most repeated tasks</li>
+        <li>Add a read-only reviewer agent for pull requests</li>
+        <li>Require branch + tests + human review for every AI change</li>
+      </ol>
+    </section>
+
+    <!-- 9 Repo layout -->
+    <section class="slide">
+      <p class="kicker">3 · Concepts</p>
+      <h2>Example repo layout</h2>
+<pre><code>repo/
+├── AGENTS.md                  # project memory: commands + conventions
+├── .ai/
+│   ├── skills/
+│   │   ├── create-endpoint/SKILL.md
+│   │   └── write-tests/SKILL.md
+│   └── agents/
+│       └── reviewer.md        # read-only review role
+└── .ai-permissions.json       # allow / deny rules</code></pre>
+      <p class="note">Commit shared config to git. Keep personal overrides and secrets out of it.</p>
+    </section>
+
+    <!-- 10 Harnesses -->
+    <section class="slide">
+      <p class="kicker">4 · Harnesses</p>
+      <h2>Popular harnesses</h2>
+      <div class="cards">
+        <article class="card"><span class="tag">Closed source</span><h3>Claude Code</h3><p>Anthropic's terminal and IDE agent. Strong permissions, hooks, subagents, skills. Easiest start if we use Claude.</p></article>
+        <article class="card"><span class="tag">Open source</span><h3>OpenCode</h3><p>Terminal agent (MIT). Many providers, including local and open-weight models. Good for avoiding lock-in.</p></article>
+        <article class="card"><span class="tag">Open source</span><h3>Pi</h3><p>Minimal, extensible terminal agent built around skills, extensions, prompt templates, and subagents.</p></article>
+      </div>
+    </section>
+
+    <!-- 11 Harness comparison -->
+    <section class="slide">
+      <p class="kicker">4 · Harnesses</p>
+      <h2>Harness comparison</h2>
+      <table>
+        <thead><tr><th></th><th>Claude Code</th><th>OpenCode</th><th>Pi</th></tr></thead>
+        <tbody>
+          <tr><td>Open source</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Model choice</td><td>Mainly Claude</td><td>Many providers</td><td>Many providers</td></tr>
+          <tr><td>Permission controls</td><td>Strong, built in</td><td>Built in</td><td>Via extensions and settings</td></tr>
+          <tr><td>Skills and subagents</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+          <tr><td>Learning curve</td><td>Low</td><td>Low to medium</td><td>Medium</td></tr>
+          <tr><td>Best for</td><td>Polished Claude workflow</td><td>Provider freedom</td><td>Customizable minimal workflow</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Recommendation: choose one primary tool to avoid fragmentation.</p>
+    </section>
+
+    <!-- 12 Permission levels -->
+    <section class="slide">
+      <p class="kicker">5 · Security</p>
+      <h2>Permission levels</h2>
+      <table>
+        <thead><tr><th>Level</th><th>Agent can</th><th>Use for</th></tr></thead>
+        <tbody>
+          <tr><td>Read-only</td><td>Read and search code</td><td>Reviews, research, questions</td></tr>
+          <tr><td>Supervised edit</td><td>Edit files; approve each shell command</td><td>Default for most work</td></tr>
+          <tr><td>Scoped auto</td><td>Edit + whitelisted commands (test, lint)</td><td>Routine tasks in a sandbox</td></tr>
+          <tr><td>Full auto</td><td>Anything</td><td>Disposable sandboxes only, never real credentials</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Start at Supervised edit. Move up only with evidence.</p>
+    </section>
+
+    <!-- 13 Example policy -->
+    <section class="slide">
+      <p class="kicker">5 · Security</p>
+      <h2>Example deny-by-default policy</h2>
+<pre><code>{
+  "allow": [
+    "Bash(npm test)", "Bash(npm run lint)",
+    "Bash(git status)", "Bash(git diff)",
+    "Read(./src/**)", "Edit(./src/**)"
+  ],
+  "deny": [
+    "Read(./.env*)", "Read(./secrets/**)",
+    "Bash(curl *)", "Bash(rm -rf *)",
+    "Bash(git push *)", "Edit(./infra/prod/**)"
+  ]
+}</code></pre>
+      <p class="note">Illustrative. Map to the real format of our chosen harness.</p>
+    </section>
+
+    <!-- 14 Threats -->
+    <section class="slide">
+      <p class="kicker">5 · Security</p>
+      <h2>Threats to know</h2>
+      <dl class="threats">
+        <dt>Prompt injection</dt><dd>Instructions hidden in issues, docs, web pages, or dependencies can steer the agent.</dd>
+        <dt>Malicious plugins / MCP servers</dt><dd>Vet every tool, skill, and extension like a dependency; pin versions.</dd>
+        <dt>Hallucinated packages</dt><dd>Verify every new dependency exists and is maintained.</dd>
+        <dt>Silent weakening</dt><dd>Agents may disable tests to pass. Protect test and CI config with code owners.</dd>
+      </dl>
+    </section>
+
+    <!-- 15 Secrets -->
+    <section class="slide">
+      <p class="kicker">5 · Security</p>
+      <h2>Secrets and data handling</h2>
+      <ul>
+        <li>Keep .env files, keys, and tokens out of the agent's readable paths</li>
+        <li>Use short-lived, scoped tokens. Never give production or cloud admin credentials</li>
+        <li>Check provider data retention and training terms; prefer enterprise plans</li>
+        <li>Run a secret scanner (e.g. gitleaks) in pre-commit and CI</li>
+        <li>Restrict network egress from agent sandboxes to allow-listed hosts</li>
+      </ul>
+    </section>
+
+    <!-- 16 Safe path -->
+    <section class="slide">
+      <p class="kicker">5 · Security</p>
+      <h2>Safe-path checklist</h2>
+      <ul class="checklist">
+        <li>Agent works in a branch or worktree, never on main</li>
+        <li>Deny rules cover secrets, prod infra, and git push</li>
+        <li>Pre-commit: secret scan, lint, tests</li>
+        <li>CI: required checks and code-owner approval on sensitive paths</li>
+        <li>Session and command logs kept for audit where supported</li>
+        <li>Written team policy: what data may enter prompts, and what must never</li>
+      </ul>
+    </section>
+
+    <!-- 17 Before you start 1/2 -->
+    <section class="slide">
+      <p class="kicker">6 · Before we start</p>
+      <h2>Before you start (1/2): policy and people</h2>
+      <dl class="threats">
+        <dt>Acceptable use policy</dt><dd>Classify data: public, internal, confidential, personal or regulated. Define what may go into prompts.</dd>
+        <dt>Approved tools and models</dt><dd>Vendor review: data residency, GDPR, retention, and contract terms.</dd>
+        <dt>Ownership</dt><dd>The developer who opens the PR owns the code. AI is never the author of record.</dd>
+        <dt>Licensing and IP</dt><dd>Check dependency licenses and generated code similarity; involve legal where needed.</dd>
+      </dl>
+    </section>
+
+    <!-- 18 Before you start 2/2 -->
+    <section class="slide">
+      <p class="kicker">6 · Before we start</p>
+      <h2>Before you start (2/2): process and measurement</h2>
+      <dl class="threats">
+        <dt>Baseline metrics now</dt><dd>Cycle time, review rounds, escaped defects, and effort per task, so we can prove impact.</dd>
+        <dt>Low-risk pilot repo</dt><dd>Good test coverage, clear ownership, no critical production path.</dd>
+        <dt>Cost guardrails</dt><dd>Per-user budgets, usage dashboards, and alerts from day one.</dd>
+        <dt>Incident process</dt><dd>If a secret or customer data leaks into a prompt: rotate, notify security, record the event.</dd>
+        <dt>Opt-in culture</dt><dd>No pressure to adopt. Share what works in a team log; review AGENTS.md in retros.</dd>
+      </dl>
+    </section>
+
+    <!-- 19 Where to be careful -->
+    <section class="slide">
+      <p class="kicker">6 · Before we start</p>
+      <h2>Where to be extra careful</h2>
+      <div class="cards grid-2">
+        <article class="card"><h3>Needs senior review</h3><p>Authentication, authorization, cryptography, payments, and data-deletion logic.</p></article>
+        <article class="card"><h3>Avoid unsupervised</h3><p>Production hotfixes, infrastructure changes, and migrations on real data.</p></article>
+        <article class="card"><h3>Good early wins</h3><p>Unit tests, docs, refactors with tests, boilerplate, and code explanations.</p></article>
+        <article class="card"><h3>Common anti-patterns</h3><p>Merging code nobody read, "fixing" failing tests by weakening them, skipping review.</p></article>
+      </div>
+    </section>
+
+    <!-- 20 Rollout -->
+    <section class="slide">
+      <p class="kicker">7 · Next steps</p>
+      <h2>4-week rollout</h2>
+      <table>
+        <thead><tr><th>Week</th><th>Goal</th><th>Done when</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Pilot with 2 to 3 devs on one repo</td><td>AGENTS.md written, tools installed, permissions set</td></tr>
+          <tr><td>2</td><td>Build first skills and a reviewer agent</td><td>3 repeated tasks automated with skills</td></tr>
+          <tr><td>3</td><td>Expand to the team; add CI guardrails</td><td>All AI PRs pass secret scan, tests, and review</td></tr>
+          <tr><td>4</td><td>Measure and decide</td><td>Time saved, defects, cost per PR; set the default</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Measure: cycle time, review comments per PR, escaped bugs, monthly spend per developer.</p>
+    </section>
+
+    <!-- 21 Closing -->
+    <section class="slide">
+      <p class="kicker">Next steps</p>
+      <h2 class="display">Let's start</h2>
+      <ul>
+        <li>Agree on the acceptable use policy and approved tools this week</li>
+        <li>Choose the pilot repo and the 2 to 3 pilot developers</li>
+        <li>Capture baseline metrics before the first AI task</li>
+        <li>Questions and discussion</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Controls -->
+  <div class="controls" aria-label="Slide controls">
+    <button id="prev" aria-label="Previous slide">←</button>
+    <span id="counter">1 / 1</span>
+    <button id="next" aria-label="Next slide">→</button>
+    <button id="fs" aria-label="Fullscreen">⛶</button>
+  </div>
+  <div class="progress"><div id="bar"></div></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
