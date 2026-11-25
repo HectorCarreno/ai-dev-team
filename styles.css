@@ -217,6 +217,17 @@ html[data-theme="light"] .site-header {
 }
 .icon-btn:hover, .mobile-menu-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
 .mobile-menu-btn { display: none; }
+.lang-btn {
+  width: auto;
+  padding: 0 10px;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.lang-opt { color: var(--muted); transition: color 0.15s; }
+.lang-opt.active { color: var(--accent); }
+.lang-sep { color: var(--border-strong); }
 
 /* Buttons */
 .btn {

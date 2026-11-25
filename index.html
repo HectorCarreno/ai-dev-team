@@ -29,16 +29,21 @@
       </a>
 
       <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#foundations" class="nav-link">Foundations</a>
-        <a href="#models" class="nav-link">Models</a>
-        <a href="#concepts" class="nav-link">Concepts</a>
-        <a href="#harnesses" class="nav-link">Harnesses</a>
-        <a href="#setup-examples" class="nav-link nav-link--highlight">Setup Lab</a>
-        <a href="#security" class="nav-link">Security</a>
-        <a href="#rollout" class="nav-link">Rollout</a>
+        <a href="#foundations" class="nav-link" data-i18n="nav.foundations">Foundations</a>
+        <a href="#models" class="nav-link" data-i18n="nav.models">Models</a>
+        <a href="#concepts" class="nav-link" data-i18n="nav.concepts">Concepts</a>
+        <a href="#harnesses" class="nav-link" data-i18n="nav.harnesses">Harnesses</a>
+        <a href="#setup-examples" class="nav-link nav-link--highlight" data-i18n="nav.setup">Setup Lab</a>
+        <a href="#security" class="nav-link" data-i18n="nav.security">Security</a>
+        <a href="#rollout" class="nav-link" data-i18n="nav.rollout">Rollout</a>
       </nav>
 
       <div class="header-actions">
+        <button class="icon-btn lang-btn" id="langToggle" aria-label="Switch language (EN / ES)" title="Switch language / Cambiar idioma">
+          <span class="lang-opt active" data-lang="en">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-opt" data-lang="es">ES</span>
+        </button>
         <button class="icon-btn" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle theme">
           <span class="theme-icon" id="themeIcon">☀</span>
         </button>
@@ -56,35 +61,35 @@
         <div class="hero-content reveal">
           <div class="badge-pill">
             <span class="pulse-dot"></span>
-            TEAM ENGINEERING PLAYBOOK · INTERACTIVE EDITION
+            <span data-i18n="hero.badge">TEAM ENGINEERING PLAYBOOK · INTERACTIVE EDITION</span>
           </div>
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-i18n-html="hero.title">
             Getting Started with <span class="gradient-text">AI Agents</span> in a Dev Team
           </h1>
-          <p class="hero-lead">
+          <p class="hero-lead" data-i18n="hero.lead">
             A practical, high-tech field guide to harnesses, model routing, reusable skills, subagents, permissions, and safe team adoption.
           </p>
           <div class="hero-cta">
             <a href="#setup-examples" class="btn btn-primary">
-              <span>Explore Harness Setup Lab</span>
+              <span data-i18n="hero.cta1">Explore Harness Setup Lab</span>
               <span class="btn-arrow">→</span>
             </a>
             <a href="#foundations" class="btn btn-secondary">
-              <span>Start Curriculum</span>
+              <span data-i18n="hero.cta2">Start Curriculum</span>
             </a>
           </div>
           <div class="hero-metrics">
             <div class="metric">
               <span class="metric-val">3</span>
-              <span class="metric-label">Harnesses Covered<br><small>Claude · OpenCode · Pi</small></span>
+              <span class="metric-label" data-i18n-html="hero.m1">Harnesses Covered<br><small>Claude · OpenCode · Pi</small></span>
             </div>
             <div class="metric">
               <span class="metric-val">7</span>
-              <span class="metric-label">Core Modules<br><small>Interactive Labs</small></span>
+              <span class="metric-label" data-i18n-html="hero.m2">Core Modules<br><small>Interactive Labs</small></span>
             </div>
             <div class="metric">
-              <span class="metric-val">4-Wk</span>
-              <span class="metric-label">Safe Rollout<br><small>Pilot to Production</small></span>
+              <span class="metric-val" data-i18n="hero.m3val">4-Wk</span>
+              <span class="metric-label" data-i18n-html="hero.m3">Safe Rollout<br><small>Pilot to Production</small></span>
             </div>
           </div>
         </div>
@@ -97,7 +102,7 @@
                 <span></span><span></span><span></span>
               </div>
               <span class="terminal-title">agent-session — ~/repo</span>
-              <span class="terminal-status">READY</span>
+              <span class="terminal-status" data-i18n="term.ready">READY</span>
             </div>
             <div class="terminal-body" id="heroTerminalBody">
               <div class="term-line"><span class="prompt">$</span> <span class="typed-cmd" id="heroTypedCmd"></span><span class="cursor-blink">▋</span></div>
@@ -110,13 +115,13 @@
       <!-- Curriculum Overview Strip -->
       <div class="container reveal" style="--delay: 200ms">
         <div class="curriculum-strip">
-          <a href="#foundations" class="curr-item"><span class="curr-num">01</span><span>Harness &amp; Models</span></a>
-          <a href="#models" class="curr-item"><span class="curr-num">02</span><span>Quality vs Price &amp; Local</span></a>
-          <a href="#concepts" class="curr-item"><span class="curr-num">03</span><span>Skills, Agents &amp; Loop</span></a>
-          <a href="#harnesses" class="curr-item"><span class="curr-num">04</span><span>Popular Harnesses</span></a>
-          <a href="#setup-examples" class="curr-item curr-item--accent"><span class="curr-num">05</span><span>Setup Lab: Claude / OpenCode / Pi</span></a>
-          <a href="#security" class="curr-item"><span class="curr-num">06</span><span>Permissions &amp; Security</span></a>
-          <a href="#rollout" class="curr-item"><span class="curr-num">07</span><span>Ground Rules &amp; Rollout</span></a>
+          <a href="#foundations" class="curr-item"><span class="curr-num">01</span><span data-i18n="curr.1">Harness &amp; Models</span></a>
+          <a href="#models" class="curr-item"><span class="curr-num">02</span><span data-i18n="curr.2">Quality vs Price &amp; Local</span></a>
+          <a href="#concepts" class="curr-item"><span class="curr-num">03</span><span data-i18n="curr.3">Skills, Agents &amp; Loop</span></a>
+          <a href="#harnesses" class="curr-item"><span class="curr-num">04</span><span data-i18n="curr.4">Popular Harnesses</span></a>
+          <a href="#setup-examples" class="curr-item curr-item--accent"><span class="curr-num">05</span><span data-i18n="curr.5">Setup Lab: Claude / OpenCode / Pi</span></a>
+          <a href="#security" class="curr-item"><span class="curr-num">06</span><span data-i18n="curr.6">Permissions &amp; Security</span></a>
+          <a href="#rollout" class="curr-item"><span class="curr-num">07</span><span data-i18n="curr.7">Ground Rules &amp; Rollout</span></a>
         </div>
       </div>
     </section>
@@ -125,51 +130,51 @@
     <section id="foundations" class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">01 · Foundations</span>
-          <h2>What is a harness? What is a model?</h2>
-          <p class="section-sub">Click any layer in the pipeline below to inspect how your prompt travels safely to your repository.</p>
+          <span class="kicker" data-i18n="fnd.kicker">01 · Foundations</span>
+          <h2 data-i18n="fnd.title">What is a harness? What is a model?</h2>
+          <p class="section-sub" data-i18n="fnd.sub">Click any layer in the pipeline below to inspect how your prompt travels safely to your repository.</p>
         </div>
 
         <!-- Interactive Architecture Pipeline -->
         <div class="interactive-panel reveal">
           <div class="pipeline-controls">
-            <button class="btn btn-sm btn-primary" id="animatePipelineBtn">▶ Trace Request Flow</button>
-            <span class="pipeline-hint">or click any node to inspect</span>
+            <button class="btn btn-sm btn-primary" id="animatePipelineBtn" data-i18n="fnd.traceBtn">▶ Trace Request Flow</button>
+            <span class="pipeline-hint" data-i18n="fnd.hint">or click any node to inspect</span>
           </div>
 
           <div class="flow-pipeline" id="archPipeline" role="tablist" aria-label="Agent architecture layers">
             <button class="flow-node active" data-layer="you" role="tab" aria-selected="true">
-              <span class="node-badge">INPUT</span>
-              <strong>You</strong>
-              <small>Intent &amp; task</small>
+              <span class="node-badge" data-i18n="fnd.n1badge">INPUT</span>
+              <strong data-i18n="fnd.n1title">You</strong>
+              <small data-i18n="fnd.n1sub">Intent &amp; task</small>
             </button>
             <div class="flow-connector"><span class="packet"></span>→</div>
 
             <button class="flow-node" data-layer="harness" role="tab" aria-selected="false">
-              <span class="node-badge">RUNTIME</span>
-              <strong>Harness</strong>
-              <small>tools, memory, rules</small>
+              <span class="node-badge" data-i18n="fnd.n2badge">RUNTIME</span>
+              <strong data-i18n="fnd.n2title">Harness</strong>
+              <small data-i18n="fnd.n2sub">tools, memory, rules</small>
             </button>
             <div class="flow-connector"><span class="packet"></span>→</div>
 
             <button class="flow-node" data-layer="model" role="tab" aria-selected="false">
-              <span class="node-badge">BRAIN</span>
-              <strong>Model</strong>
-              <small>reasoning &amp; code</small>
+              <span class="node-badge" data-i18n="fnd.n3badge">BRAIN</span>
+              <strong data-i18n="fnd.n3title">Model</strong>
+              <small data-i18n="fnd.n3sub">reasoning &amp; code</small>
             </button>
             <div class="flow-connector"><span class="packet"></span>→</div>
 
             <button class="flow-node" data-layer="tools" role="tab" aria-selected="false">
-              <span class="node-badge">HANDS</span>
-              <strong>Tools</strong>
-              <small>files, shell, git, web</small>
+              <span class="node-badge" data-i18n="fnd.n4badge">HANDS</span>
+              <strong data-i18n="fnd.n4title">Tools</strong>
+              <small data-i18n="fnd.n4sub">files, shell, git, web</small>
             </button>
             <div class="flow-connector"><span class="packet"></span>→</div>
 
             <button class="flow-node" data-layer="repo" role="tab" aria-selected="false">
-              <span class="node-badge">TARGET</span>
-              <strong>Our Repo</strong>
-              <small>branch, tests, PR</small>
+              <span class="node-badge" data-i18n="fnd.n5badge">TARGET</span>
+              <strong data-i18n="fnd.n5title">Our Repo</strong>
+              <small data-i18n="fnd.n5sub">branch, tests, PR</small>
             </button>
           </div>
 
@@ -180,14 +185,14 @@
 
         <div class="cards grid-2 mt-lg reveal">
           <article class="card glass-card">
-            <span class="tag">Model</span>
-            <h3>Decides intelligence &amp; code quality</h3>
-            <p>Claude, GPT, Gemini, DeepSeek, Qwen. The model reasons over context, plans changes, and generates text, patches, and tool calls.</p>
+            <span class="tag" data-i18n="fnd.c1tag">Model</span>
+            <h3 data-i18n="fnd.c1title">Decides intelligence &amp; code quality</h3>
+            <p data-i18n="fnd.c1body">Claude, GPT, Gemini, DeepSeek, Qwen. The model reasons over context, plans changes, and generates text, patches, and tool calls.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag">Harness</span>
-            <h3>Decides safety, context &amp; capabilities</h3>
-            <p>Claude Code, OpenCode, Pi. The harness loads <code>AGENTS.md</code>, enforces allow/deny permissions, executes tools, and manages subagents.</p>
+            <span class="tag" data-i18n="fnd.c2tag">Harness</span>
+            <h3 data-i18n="fnd.c2title">Decides safety, context &amp; capabilities</h3>
+            <p data-i18n-html="fnd.c2body">Claude Code, OpenCode, Pi. The harness loads <code>AGENTS.md</code>, enforces allow/deny permissions, executes tools, and manages subagents.</p>
           </article>
         </div>
       </div>
@@ -197,120 +202,120 @@
     <section id="models" class="section section-alt">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">02 · Models &amp; Routing</span>
-          <h2>Popular models: quality vs. price</h2>
-          <p class="section-sub">Pick models by task complexity and privacy needs, not by hype. Filter the matrix below.</p>
+          <span class="kicker" data-i18n="mod.kicker">02 · Models &amp; Routing</span>
+          <h2 data-i18n="mod.title">Popular models: quality vs. price</h2>
+          <p class="section-sub" data-i18n="mod.sub">Pick models by task complexity and privacy needs, not by hype. Filter the matrix below.</p>
         </div>
 
         <!-- Filterable Model Matrix -->
         <div class="interactive-panel reveal">
           <div class="filter-bar" role="group" aria-label="Filter models by tier">
-            <button class="filter-btn active" data-filter="all">All Models</button>
-            <button class="filter-btn" data-filter="high">Flagship (Planning)</button>
-            <button class="filter-btn" data-filter="medium">Balanced (Daily)</button>
-            <button class="filter-btn" data-filter="low">Fast &amp; Open (Bulk / Local)</button>
+            <button class="filter-btn active" data-filter="all" data-i18n="mod.fAll">All Models</button>
+            <button class="filter-btn" data-filter="high" data-i18n="mod.fHigh">Flagship (Planning)</button>
+            <button class="filter-btn" data-filter="medium" data-i18n="mod.fMed">Balanced (Daily)</button>
+            <button class="filter-btn" data-filter="low" data-i18n="mod.fLow">Fast &amp; Open (Bulk / Local)</button>
           </div>
 
           <div class="table-wrap">
             <table class="data-table" id="modelsTable">
               <thead>
                 <tr>
-                  <th>Family</th>
-                  <th>Strength</th>
-                  <th>Relative Cost</th>
-                  <th>Good For</th>
+                  <th data-i18n="mod.th1">Family</th>
+                  <th data-i18n="mod.th2">Strength</th>
+                  <th data-i18n="mod.th3">Relative Cost</th>
+                  <th data-i18n="mod.th4">Good For</th>
                 </tr>
               </thead>
               <tbody>
                 <tr data-tier="high">
                   <td>Claude Opus</td>
-                  <td>Top reasoning, large refactors</td>
-                  <td><span class="cost-pill cost-high">High</span></td>
-                  <td>Architecture, hard bugs, planning</td>
+                  <td data-i18n="mod.r1s">Top reasoning, large refactors</td>
+                  <td><span class="cost-pill cost-high" data-i18n="mod.cHigh">High</span></td>
+                  <td data-i18n="mod.r1g">Architecture, hard bugs, planning</td>
                 </tr>
                 <tr data-tier="medium">
                   <td>Claude Sonnet</td>
-                  <td>Best quality per dollar for code</td>
-                  <td><span class="cost-pill cost-med">Medium</span></td>
-                  <td>Daily feature work, reviews</td>
+                  <td data-i18n="mod.r2s">Best quality per dollar for code</td>
+                  <td><span class="cost-pill cost-med" data-i18n="mod.cMed">Medium</span></td>
+                  <td data-i18n="mod.r2g">Daily feature work, reviews</td>
                 </tr>
                 <tr data-tier="low">
                   <td>Claude Haiku</td>
-                  <td>Fast and cheap</td>
-                  <td><span class="cost-pill cost-low">Low</span></td>
-                  <td>Small edits, subagent tasks</td>
+                  <td data-i18n="mod.r3s">Fast and cheap</td>
+                  <td><span class="cost-pill cost-low" data-i18n="mod.cLow">Low</span></td>
+                  <td data-i18n="mod.r3g">Small edits, subagent tasks</td>
                 </tr>
                 <tr data-tier="medium">
                   <td>GPT-5 family</td>
-                  <td>Strong general and coding; mini tiers</td>
-                  <td><span class="cost-pill cost-med">Med – Low</span></td>
-                  <td>Broad use, cost-sensitive jobs</td>
+                  <td data-i18n="mod.r4s">Strong general and coding; mini tiers</td>
+                  <td><span class="cost-pill cost-med" data-i18n="mod.cMedLow">Med – Low</span></td>
+                  <td data-i18n="mod.r4g">Broad use, cost-sensitive jobs</td>
                 </tr>
                 <tr data-tier="medium">
                   <td>Gemini Pro / Flash</td>
-                  <td>Very large context, good value</td>
-                  <td><span class="cost-pill cost-med">Med – Low</span></td>
-                  <td>Big codebases and docs</td>
+                  <td data-i18n="mod.r5s">Very large context, good value</td>
+                  <td><span class="cost-pill cost-med" data-i18n="mod.cMedLow">Med – Low</span></td>
+                  <td data-i18n="mod.r5g">Big codebases and docs</td>
                 </tr>
                 <tr data-tier="low">
                   <td>DeepSeek</td>
-                  <td>Open weights, very low price</td>
-                  <td><span class="cost-pill cost-vlow">Very Low</span></td>
-                  <td>Bulk work, budget, self-hosting</td>
+                  <td data-i18n="mod.r6s">Open weights, very low price</td>
+                  <td><span class="cost-pill cost-vlow" data-i18n="mod.cVLow">Very Low</span></td>
+                  <td data-i18n="mod.r6g">Bulk work, budget, self-hosting</td>
                 </tr>
                 <tr data-tier="low">
                   <td>Qwen3-Coder / Kimi K2</td>
-                  <td>Strong open coding models</td>
-                  <td><span class="cost-pill cost-vlow">Very Low</span></td>
-                  <td>Privacy-sensitive &amp; local setups</td>
+                  <td data-i18n="mod.r7s">Strong open coding models</td>
+                  <td><span class="cost-pill cost-vlow" data-i18n="mod.cVLow">Very Low</span></td>
+                  <td data-i18n="mod.r7g">Privacy-sensitive &amp; local setups</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p class="note mt-sm">Prices and rankings change often. Verify on provider sites before budgeting.</p>
+          <p class="note mt-sm" data-i18n="mod.note">Prices and rankings change often. Verify on provider sites before budgeting.</p>
         </div>
 
         <!-- Model Strategy 3 Tiers -->
         <div class="cards grid-3 mt-lg reveal">
           <article class="card glass-card">
-            <span class="tag tag-amber">Expensive</span>
-            <h3>Best quality</h3>
-            <p>Top Opus or GPT-5 class. Planning, architecture, tricky debugging.</p>
+            <span class="tag tag-amber" data-i18n="mod.s1tag">Expensive</span>
+            <h3 data-i18n="mod.s1title">Best quality</h3>
+            <p data-i18n="mod.s1body">Top Opus or GPT-5 class. Planning, architecture, tricky debugging.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-cyan">Default</span>
-            <h3>Best value</h3>
-            <p>Sonnet, GPT-5 mid tier, Gemini Pro. Most daily coding happens here.</p>
+            <span class="tag tag-cyan" data-i18n="mod.s2tag">Default</span>
+            <h3 data-i18n="mod.s2title">Best value</h3>
+            <p data-i18n="mod.s2body">Sonnet, GPT-5 mid tier, Gemini Pro. Most daily coding happens here.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-green">Bulk</span>
-            <h3>Cheap &amp; fast</h3>
-            <p>Haiku, mini, Flash, DeepSeek. Search, tests, boilerplate, subagents.</p>
+            <span class="tag tag-green" data-i18n="mod.s3tag">Bulk</span>
+            <h3 data-i18n="mod.s3title">Cheap &amp; fast</h3>
+            <p data-i18n="mod.s3body">Haiku, mini, Flash, DeepSeek. Search, tests, boilerplate, subagents.</p>
           </article>
         </div>
 
         <!-- Local vs Cloud -->
         <div class="cards grid-2 mt-lg reveal">
           <article class="card glass-card">
-            <span class="tag tag-green">Local / Self-hosted</span>
-            <h3>Run on your own machine</h3>
-            <p>Open-weight models (DeepSeek, Qwen, Kimi, Llama) served via Ollama, vLLM, or a private server.</p>
+            <span class="tag tag-green" data-i18n="mod.l1tag">Local / Self-hosted</span>
+            <h3 data-i18n="mod.l1title">Run on your own machine</h3>
+            <p data-i18n="mod.l1body">Open-weight models (DeepSeek, Qwen, Kimi, Llama) served via Ollama, vLLM, or a private server.</p>
             <ul class="clean-list mt-sm">
-              <li>Zero data leaves the machine</li>
-              <li>No per-token billing</li>
-              <li>Slower, less capable than top cloud models</li>
-              <li>Needs hardware and maintenance</li>
+              <li data-i18n="mod.l1a">Zero data leaves the machine</li>
+              <li data-i18n="mod.l1b">No per-token billing</li>
+              <li data-i18n="mod.l1c">Slower, less capable than top cloud models</li>
+              <li data-i18n="mod.l1d">Needs hardware and maintenance</li>
             </ul>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-cyan">Cloud / API</span>
-            <h3>Provider runs the model</h3>
-            <p>Claude, GPT, Gemini, and others via API or managed enterprise plans.</p>
+            <span class="tag tag-cyan" data-i18n="mod.l2tag">Cloud / API</span>
+            <h3 data-i18n="mod.l2title">Provider runs the model</h3>
+            <p data-i18n="mod.l2body">Claude, GPT, Gemini, and others via API or managed enterprise plans.</p>
             <ul class="clean-list mt-sm">
-              <li>Best quality and fastest improvement</li>
-              <li>Pay per use; cost scales with usage</li>
-              <li>Code may leave your network</li>
-              <li>Check retention and training terms</li>
+              <li data-i18n="mod.l2a">Best quality and fastest improvement</li>
+              <li data-i18n="mod.l2b">Pay per use; cost scales with usage</li>
+              <li data-i18n="mod.l2c">Code may leave your network</li>
+              <li data-i18n="mod.l2d">Check retention and training terms</li>
             </ul>
           </article>
         </div>
@@ -319,18 +324,18 @@
         <div class="interactive-panel mt-lg reveal">
           <div class="panel-head">
             <div>
-              <span class="kicker">Interactive Simulator</span>
-              <h3>Balanced Workflow Router: Local vs. Cloud</h3>
+              <span class="kicker" data-i18n="mod.rKicker">Interactive Simulator</span>
+              <h3 data-i18n="mod.rTitle">Balanced Workflow Router: Local vs. Cloud</h3>
             </div>
-            <p class="muted">Select a real engineering task to see the recommended model tier and routing rationale.</p>
+            <p class="muted" data-i18n="mod.rSub">Select a real engineering task to see the recommended model tier and routing rationale.</p>
           </div>
           <div class="router-grid">
             <div class="router-tasks" id="routerTasks">
-              <button class="router-task active" data-route="explain">Explain legacy regex &amp; utils</button>
-              <button class="router-task" data-route="arch">Refactor auth middleware across 12 files</button>
-              <button class="router-task" data-route="scaffold">Generate DTO boilerplate &amp; types</button>
-              <button class="router-task" data-route="race">Debug intermittent race condition</button>
-              <button class="router-task" data-route="review">Security &amp; logic PR review</button>
+              <button class="router-task active" data-route="explain" data-i18n="mod.rt1">Explain legacy regex &amp; utils</button>
+              <button class="router-task" data-route="arch" data-i18n="mod.rt2">Refactor auth middleware across 12 files</button>
+              <button class="router-task" data-route="scaffold" data-i18n="mod.rt3">Generate DTO boilerplate &amp; types</button>
+              <button class="router-task" data-route="race" data-i18n="mod.rt4">Debug intermittent race condition</button>
+              <button class="router-task" data-route="review" data-i18n="mod.rt5">Security &amp; logic PR review</button>
             </div>
             <div class="router-result" id="routerResult">
               <!-- Populated by JS -->
@@ -344,31 +349,31 @@
     <section id="concepts" class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">03 · Core Concepts</span>
-          <h2>Task, skill, agent, and project memory</h2>
-          <p class="section-sub">The four building blocks that make AI agents predictable across a team.</p>
+          <span class="kicker" data-i18n="con.kicker">03 · Core Concepts</span>
+          <h2 data-i18n="con.title">Task, skill, agent, and project memory</h2>
+          <p class="section-sub" data-i18n="con.sub">The four building blocks that make AI agents predictable across a team.</p>
         </div>
 
         <div class="cards grid-2 reveal">
           <article class="card glass-card">
-            <span class="tag">01 · Unit of Work</span>
-            <h3>Task</h3>
-            <p>One bounded unit of work with a clear definition of done. Small, focused tasks succeed far more often than vague mega-prompts.</p>
+            <span class="tag" data-i18n="con.c1tag">01 · Unit of Work</span>
+            <h3 data-i18n="con.c1title">Task</h3>
+            <p data-i18n="con.c1body">One bounded unit of work with a clear definition of done. Small, focused tasks succeed far more often than vague mega-prompts.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag">02 · Playbook</span>
-            <h3>Skill (<code>SKILL.md</code>)</h3>
-            <p>Reusable instructions: how we write database migrations, create API endpoints, or run E2E tests consistently.</p>
+            <span class="tag" data-i18n="con.c2tag">02 · Playbook</span>
+            <h3 data-i18n-html="con.c2title">Skill (<code>SKILL.md</code>)</h3>
+            <p data-i18n="con.c2body">Reusable instructions: how we write database migrations, create API endpoints, or run E2E tests consistently.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag">03 · Isolated Context</span>
-            <h3>Agent (Subagent)</h3>
-            <p>Separate context window with its own role, restricted tools, and model. Example: a read-only PR reviewer.</p>
+            <span class="tag" data-i18n="con.c3tag">03 · Isolated Context</span>
+            <h3 data-i18n="con.c3title">Agent (Subagent)</h3>
+            <p data-i18n="con.c3body">Separate context window with its own role, restricted tools, and model. Example: a read-only PR reviewer.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag">04 · Shared Brain</span>
+            <span class="tag" data-i18n="con.c4tag">04 · Shared Brain</span>
             <h3><code>AGENTS.md</code></h3>
-            <p>Project memory: build/test commands, conventions, folder layout, and do-not rules. Read automatically at every session start.</p>
+            <p data-i18n="con.c4body">Project memory: build/test commands, conventions, folder layout, and do-not rules. Read automatically at every session start.</p>
           </article>
         </div>
 
@@ -376,41 +381,41 @@
         <div class="interactive-panel mt-lg reveal">
           <div class="panel-head">
             <div>
-              <span class="kicker">Interactive Pipeline</span>
-              <h3>The AI-Assisted Development Loop</h3>
+              <span class="kicker" data-i18n="con.loopKicker">Interactive Pipeline</span>
+              <h3 data-i18n="con.loopTitle">The AI-Assisted Development Loop</h3>
             </div>
-            <button class="btn btn-sm btn-primary" id="playDevLoopBtn">▶ Simulate Loop</button>
+            <button class="btn btn-sm btn-primary" id="playDevLoopBtn" data-i18n="con.loopBtn">▶ Simulate Loop</button>
           </div>
           <div class="dev-loop" id="devLoop">
             <div class="loop-step active" data-step="0">
               <span class="loop-num">01</span>
-              <strong>Write Task</strong>
-              <small>Bounded scope</small>
+              <strong data-i18n="con.ls1t">Write Task</strong>
+              <small data-i18n="con.ls1s">Bounded scope</small>
             </div>
             <div class="loop-step" data-step="1">
               <span class="loop-num">02</span>
-              <strong>Plan</strong>
-              <small>Strong model</small>
+              <strong data-i18n="con.ls2t">Plan</strong>
+              <small data-i18n="con.ls2s">Strong model</small>
             </div>
             <div class="loop-step" data-step="2">
               <span class="loop-num">03</span>
-              <strong>Implement</strong>
-              <small>On a branch</small>
+              <strong data-i18n="con.ls3t">Implement</strong>
+              <small data-i18n="con.ls3s">On a branch</small>
             </div>
             <div class="loop-step" data-step="3">
               <span class="loop-num">04</span>
-              <strong>Run Tests</strong>
-              <small>Tests + lint</small>
+              <strong data-i18n="con.ls4t">Run Tests</strong>
+              <small data-i18n="con.ls4s">Tests + lint</small>
             </div>
             <div class="loop-step" data-step="4">
               <span class="loop-num">05</span>
-              <strong>Review</strong>
-              <small>Agent + human</small>
+              <strong data-i18n="con.ls5t">Review</strong>
+              <small data-i18n="con.ls5s">Agent + human</small>
             </div>
             <div class="loop-step" data-step="5">
               <span class="loop-num">06</span>
-              <strong>Pull Request</strong>
-              <small>Same CI gates</small>
+              <strong data-i18n="con.ls6t">Pull Request</strong>
+              <small data-i18n="con.ls6s">Same CI gates</small>
             </div>
           </div>
           <div class="loop-caption" id="loopCaption">
@@ -421,21 +426,21 @@
         <!-- Minimal Starter Setup + Interactive Repo Explorer -->
         <div class="grid-split mt-lg reveal">
           <div class="card glass-card">
-            <span class="kicker">Starter Checklist</span>
-            <h3>Minimal starter setup</h3>
+            <span class="kicker" data-i18n="con.stKicker">Starter Checklist</span>
+            <h3 data-i18n="con.stTitle">Minimal starter setup</h3>
             <ol class="steps mt-sm">
-              <li>Pick one harness and one default model for the team</li>
-              <li>Add <code>AGENTS.md</code> to each repo: stack, commands, style rules, forbidden paths</li>
-              <li>Create 2 to 3 skills for your most repeated tasks</li>
-              <li>Add a read-only reviewer agent for pull requests</li>
-              <li>Require branch + tests + human review for every AI change</li>
+              <li data-i18n="con.st1">Pick one harness and one default model for the team</li>
+              <li data-i18n-html="con.st2">Add <code>AGENTS.md</code> to each repo: stack, commands, style rules, forbidden paths</li>
+              <li data-i18n="con.st3">Create 2 to 3 skills for your most repeated tasks</li>
+              <li data-i18n="con.st4">Add a read-only reviewer agent for pull requests</li>
+              <li data-i18n="con.st5">Require branch + tests + human review for every AI change</li>
             </ol>
           </div>
 
           <div class="card glass-card">
-            <span class="kicker">Interactive Explorer</span>
-            <h3>Generic repo layout</h3>
-            <p class="muted mb-sm">Click any file to inspect its role:</p>
+            <span class="kicker" data-i18n="con.exKicker">Interactive Explorer</span>
+            <h3 data-i18n="con.exTitle">Generic repo layout</h3>
+            <p class="muted mb-sm" data-i18n="con.exSub">Click any file to inspect its role:</p>
             <div class="mini-tree" id="genericTree">
               <button class="tree-file active" data-doc="agents">📄 AGENTS.md</button>
               <button class="tree-file" data-doc="skill1">📁 .ai/skills/create-endpoint/SKILL.md</button>
@@ -453,26 +458,26 @@
     <section id="harnesses" class="section section-alt">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">04 · Harnesses</span>
-          <h2>Popular harnesses compared</h2>
-          <p class="section-sub">Choose one primary tool for the team to avoid config fragmentation.</p>
+          <span class="kicker" data-i18n="har.kicker">04 · Harnesses</span>
+          <h2 data-i18n="har.title">Popular harnesses compared</h2>
+          <p class="section-sub" data-i18n="har.sub">Choose one primary tool for the team to avoid config fragmentation.</p>
         </div>
 
         <div class="cards grid-3 reveal">
           <article class="card glass-card harness-card">
-            <span class="tag tag-amber">Closed Source</span>
+            <span class="tag tag-amber" data-i18n="har.c1tag">Closed Source</span>
             <h3>Claude Code</h3>
-            <p>Anthropic's terminal and IDE agent. Strong built-in permissions, hooks, subagents, and skills. Easiest start if your team standardizes on Claude.</p>
+            <p data-i18n="har.c1body">Anthropic's terminal and IDE agent. Strong built-in permissions, hooks, subagents, and skills. Easiest start if your team standardizes on Claude.</p>
           </article>
           <article class="card glass-card harness-card">
-            <span class="tag tag-green">Open Source · MIT</span>
+            <span class="tag tag-green" data-i18n="har.c2tag">Open Source · MIT</span>
             <h3>OpenCode</h3>
-            <p>Terminal agent with broad provider support—including Anthropic, OpenAI, Gemini, and local Ollama models. Great for avoiding vendor lock-in.</p>
+            <p data-i18n="har.c2body">Terminal agent with broad provider support—including Anthropic, OpenAI, Gemini, and local Ollama models. Great for avoiding vendor lock-in.</p>
           </article>
           <article class="card glass-card harness-card">
-            <span class="tag tag-cyan">Open Source</span>
+            <span class="tag tag-cyan" data-i18n="har.c3tag">Open Source</span>
             <h3>Pi</h3>
-            <p>Minimal, extensible terminal agent built around <code>AGENTS.md</code>, TypeScript extensions, prompt templates, skills, and subagents.</p>
+            <p data-i18n-html="har.c3body">Minimal, extensible terminal agent built around <code>AGENTS.md</code>, TypeScript extensions, prompt templates, skills, and subagents.</p>
           </article>
         </div>
 
@@ -481,7 +486,7 @@
             <table class="data-table">
               <thead>
                 <tr>
-                  <th>Capability</th>
+                  <th data-i18n="har.th1">Capability</th>
                   <th>Claude Code</th>
                   <th>OpenCode</th>
                   <th>Pi</th>
@@ -489,40 +494,40 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Open source</td>
-                  <td>No</td>
+                  <td data-i18n="har.r1">Open source</td>
+                  <td data-i18n="har.no">No</td>
                   <td>Yes (MIT)</td>
-                  <td>Yes</td>
+                  <td data-i18n="har.yes">Yes</td>
                 </tr>
                 <tr>
-                  <td>Model choice</td>
-                  <td>Mainly Claude</td>
-                  <td>Many providers + local</td>
-                  <td>Many providers + local</td>
+                  <td data-i18n="har.r2">Model choice</td>
+                  <td data-i18n="har.m1">Mainly Claude</td>
+                  <td data-i18n="har.m2">Many providers + local</td>
+                  <td data-i18n="har.m2">Many providers + local</td>
                 </tr>
                 <tr>
-                  <td>Permission controls</td>
-                  <td>Strong, built in</td>
-                  <td>Built in (<code>opencode.json</code>)</td>
-                  <td>Via TypeScript extensions &amp; settings</td>
+                  <td data-i18n="har.r3">Permission controls</td>
+                  <td data-i18n="har.p1">Strong, built in</td>
+                  <td data-i18n-html="har.p2">Built in (<code>opencode.json</code>)</td>
+                  <td data-i18n="har.p3">Via TypeScript extensions &amp; settings</td>
                 </tr>
                 <tr>
-                  <td>Skills &amp; subagents</td>
-                  <td>Yes (<code>.claude/</code>)</td>
-                  <td>Yes (<code>.opencode/</code>)</td>
-                  <td>Yes (<code>.pi/</code>)</td>
+                  <td data-i18n="har.r4">Skills &amp; subagents</td>
+                  <td data-i18n-html="har.sk1">Yes (<code>.claude/</code>)</td>
+                  <td data-i18n-html="har.sk2">Yes (<code>.opencode/</code>)</td>
+                  <td data-i18n-html="har.sk3">Yes (<code>.pi/</code>)</td>
                 </tr>
                 <tr>
-                  <td>Learning curve</td>
-                  <td>Low</td>
-                  <td>Low to medium</td>
-                  <td>Medium</td>
+                  <td data-i18n="har.r5">Learning curve</td>
+                  <td data-i18n="har.lc1">Low</td>
+                  <td data-i18n="har.lc2">Low to medium</td>
+                  <td data-i18n="har.lc3">Medium</td>
                 </tr>
                 <tr>
-                  <td>Best for</td>
-                  <td>Polished Claude workflow</td>
-                  <td>Provider freedom</td>
-                  <td>Customizable minimal workflow</td>
+                  <td data-i18n="har.r6">Best for</td>
+                  <td data-i18n="har.bf1">Polished Claude workflow</td>
+                  <td data-i18n="har.bf2">Provider freedom</td>
+                  <td data-i18n="har.bf3">Customizable minimal workflow</td>
                 </tr>
               </tbody>
             </table>
@@ -531,13 +536,13 @@
       </div>
     </section>
 
-    <!-- 05. INTERACTIVE HARNESS SETUP EXAMPLES (NEW) -->
+    <!-- 05. INTERACTIVE HARNESS SETUP EXAMPLES -->
     <section id="setup-examples" class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">05 · Hands-On Setup Lab</span>
-          <h2>Project setup examples: Claude, OpenCode &amp; Pi</h2>
-          <p class="section-sub">Switch between harnesses to inspect real project config files, subagent definitions, skills, and run an interactive simulation.</p>
+          <span class="kicker" data-i18n="lab.kicker">05 · Hands-On Setup Lab</span>
+          <h2 data-i18n="lab.title">Project setup examples: Claude, OpenCode &amp; Pi</h2>
+          <p class="section-sub" data-i18n="lab.sub">Switch between harnesses to inspect real project config files, subagent definitions, skills, and run an interactive simulation.</p>
         </div>
 
         <div class="setup-lab reveal">
@@ -569,7 +574,7 @@
           <div class="ide-grid">
             <aside class="ide-sidebar" aria-label="Project files">
               <div class="ide-sidebar-head">
-                <span>PROJECT FILES</span>
+                <span data-i18n="lab.filesHead">PROJECT FILES</span>
                 <span class="ide-root">my-service/</span>
               </div>
               <div class="ide-file-list" id="ideFileList">
@@ -582,7 +587,7 @@
                 <span class="ide-filepath" id="ideFilePath">CLAUDE.md</span>
                 <div class="ide-actions">
                   <span class="ide-lang" id="ideFileLang">Markdown</span>
-                  <button class="btn-copy" id="copyCodeBtn" aria-label="Copy file contents">Copy</button>
+                  <button class="btn-copy" id="copyCodeBtn" aria-label="Copy file contents" data-i18n="lab.copy">Copy</button>
                 </div>
               </div>
               <pre class="ide-code"><code id="ideCodeContent"></code></pre>
@@ -593,12 +598,12 @@
           <div class="lab-sim">
             <div class="lab-sim-head">
               <div>
-                <span class="kicker">Live Execution Preview</span>
-                <h3>Simulate Agent Setup &amp; Subagent Run</h3>
+                <span class="kicker" data-i18n="lab.simKicker">Live Execution Preview</span>
+                <h3 data-i18n="lab.simTitle">Simulate Agent Setup &amp; Subagent Run</h3>
               </div>
               <div class="sim-buttons">
-                <button class="btn btn-primary btn-sm" id="runSimBtn">▶ Run Simulation</button>
-                <button class="btn btn-secondary btn-sm" id="resetSimBtn">↺ Reset</button>
+                <button class="btn btn-primary btn-sm" id="runSimBtn" data-i18n="lab.runBtn">▶ Run Simulation</button>
+                <button class="btn btn-secondary btn-sm" id="resetSimBtn" data-i18n="lab.resetBtn">↺ Reset</button>
               </div>
             </div>
             <div class="terminal-window sim-terminal">
@@ -620,32 +625,32 @@
     <section id="security" class="section section-alt">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">06 · Security &amp; Permissions</span>
-          <h2>Permission levels &amp; deny-by-default rules</h2>
-          <p class="section-sub">Start at Supervised Edit. Test how a deny-by-default policy evaluates real commands below.</p>
+          <span class="kicker" data-i18n="sec.kicker">06 · Security &amp; Permissions</span>
+          <h2 data-i18n="sec.title">Permission levels &amp; deny-by-default rules</h2>
+          <p class="section-sub" data-i18n="sec.sub">Start at Supervised Edit. Test how a deny-by-default policy evaluates real commands below.</p>
         </div>
 
         <!-- Permission Levels -->
         <div class="cards grid-4 reveal">
           <article class="card glass-card">
-            <span class="tag tag-green">Level 1</span>
-            <h3>Read-only</h3>
-            <p>Read &amp; search code only. Ideal for PR reviews, research, and onboarding questions.</p>
+            <span class="tag tag-green" data-i18n="sec.l1tag">Level 1</span>
+            <h3 data-i18n="sec.l1title">Read-only</h3>
+            <p data-i18n="sec.l1body">Read &amp; search code only. Ideal for PR reviews, research, and onboarding questions.</p>
           </article>
           <article class="card glass-card card-highlight">
-            <span class="tag tag-cyan">Level 2 · Default</span>
-            <h3>Supervised edit</h3>
-            <p>Edit files freely; prompt human to approve each shell command. Default for most work.</p>
+            <span class="tag tag-cyan" data-i18n="sec.l2tag">Level 2 · Default</span>
+            <h3 data-i18n="sec.l2title">Supervised edit</h3>
+            <p data-i18n="sec.l2body">Edit files freely; prompt human to approve each shell command. Default for most work.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-amber">Level 3</span>
-            <h3>Scoped auto</h3>
-            <p>Edit + whitelisted commands (<code>npm test</code>, <code>lint</code>). Routine tasks in a sandbox.</p>
+            <span class="tag tag-amber" data-i18n="sec.l3tag">Level 3</span>
+            <h3 data-i18n="sec.l3title">Scoped auto</h3>
+            <p data-i18n-html="sec.l3body">Edit + whitelisted commands (<code>npm test</code>, <code>lint</code>). Routine tasks in a sandbox.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-red">Level 4</span>
-            <h3>Full auto</h3>
-            <p>Unrestricted execution. Disposable sandboxes only—never with real credentials.</p>
+            <span class="tag tag-red" data-i18n="sec.l4tag">Level 4</span>
+            <h3 data-i18n="sec.l4title">Full auto</h3>
+            <p data-i18n="sec.l4body">Unrestricted execution. Disposable sandboxes only—never with real credentials.</p>
           </article>
         </div>
 
@@ -653,10 +658,10 @@
         <div class="interactive-panel mt-lg reveal">
           <div class="panel-head">
             <div>
-              <span class="kicker">Interactive Policy Tester</span>
-              <h3>Test a Deny-by-Default Policy</h3>
+              <span class="kicker" data-i18n="sec.ptKicker">Interactive Policy Tester</span>
+              <h3 data-i18n="sec.ptTitle">Test a Deny-by-Default Policy</h3>
             </div>
-            <p class="muted">Click any action to see how the harness evaluates it against allow/deny rules.</p>
+            <p class="muted" data-i18n="sec.ptSub">Click any action to see how the harness evaluates it against allow/deny rules.</p>
           </div>
           <div class="policy-tester">
             <div class="policy-commands" id="policyCommands">
@@ -668,8 +673,8 @@
               <button class="policy-cmd" data-cmd="infra"><code>Edit(./infra/prod/main.tf)</code></button>
             </div>
             <div class="policy-verdict" id="policyVerdict">
-              <span class="verdict-badge verdict-neutral">SELECT A COMMAND</span>
-              <p>Click a tool call on the left to evaluate it against the policy rules.</p>
+              <span class="verdict-badge verdict-neutral" data-i18n="sec.ptBadge">SELECT A COMMAND</span>
+              <p data-i18n="sec.ptPlaceholder">Click a tool call on the left to evaluate it against the policy rules.</p>
             </div>
           </div>
         </div>
@@ -677,29 +682,29 @@
         <!-- Threats & Secrets -->
         <div class="grid-split mt-lg reveal">
           <div class="card glass-card">
-            <span class="kicker">Threat Model</span>
-            <h3>Threats to know</h3>
+            <span class="kicker" data-i18n="sec.thKicker">Threat Model</span>
+            <h3 data-i18n="sec.thTitle">Threats to know</h3>
             <dl class="threats mt-sm">
-              <dt>Prompt injection</dt>
-              <dd>Instructions hidden in issues, docs, web pages, or dependencies can steer the agent.</dd>
-              <dt>Malicious plugins / MCP</dt>
-              <dd>Vet every tool, skill, and extension like a production dependency; pin versions.</dd>
-              <dt>Hallucinated packages</dt>
-              <dd>Verify every new dependency actually exists and is actively maintained.</dd>
-              <dt>Silent weakening</dt>
-              <dd>Agents may disable tests to pass. Protect test &amp; CI config with code owners.</dd>
+              <dt data-i18n="sec.th1t">Prompt injection</dt>
+              <dd data-i18n="sec.th1d">Instructions hidden in issues, docs, web pages, or dependencies can steer the agent.</dd>
+              <dt data-i18n="sec.th2t">Malicious plugins / MCP</dt>
+              <dd data-i18n="sec.th2d">Vet every tool, skill, and extension like a production dependency; pin versions.</dd>
+              <dt data-i18n="sec.th3t">Hallucinated packages</dt>
+              <dd data-i18n="sec.th3d">Verify every new dependency actually exists and is actively maintained.</dd>
+              <dt data-i18n="sec.th4t">Silent weakening</dt>
+              <dd data-i18n="sec.th4d">Agents may disable tests to pass. Protect test &amp; CI config with code owners.</dd>
             </dl>
           </div>
 
           <div class="card glass-card">
-            <span class="kicker">Data Protection</span>
-            <h3>Secrets &amp; data handling</h3>
+            <span class="kicker" data-i18n="sec.dpKicker">Data Protection</span>
+            <h3 data-i18n="sec.dpTitle">Secrets &amp; data handling</h3>
             <ul class="clean-list mt-sm">
-              <li>Keep <code>.env</code> files, keys, and tokens out of readable paths</li>
-              <li>Use short-lived, scoped tokens—never production admin credentials</li>
-              <li>Check provider retention &amp; training terms; prefer enterprise plans</li>
-              <li>Run a secret scanner (e.g. <code>gitleaks</code>) in pre-commit and CI</li>
-              <li>Restrict network egress from sandboxes to allow-listed hosts</li>
+              <li data-i18n-html="sec.dp1">Keep <code>.env</code> files, keys, and tokens out of readable paths</li>
+              <li data-i18n="sec.dp2">Use short-lived, scoped tokens—never production admin credentials</li>
+              <li data-i18n="sec.dp3">Check provider retention &amp; training terms; prefer enterprise plans</li>
+              <li data-i18n-html="sec.dp4">Run a secret scanner (e.g. <code>gitleaks</code>) in pre-commit and CI</li>
+              <li data-i18n="sec.dp5">Restrict network egress from sandboxes to allow-listed hosts</li>
             </ul>
           </div>
         </div>
@@ -708,21 +713,21 @@
         <div class="interactive-panel mt-lg reveal">
           <div class="panel-head">
             <div>
-              <span class="kicker">Team Readiness</span>
-              <h3>Safe-path checklist</h3>
+              <span class="kicker" data-i18n="sec.clKicker">Team Readiness</span>
+              <h3 data-i18n="sec.clTitle">Safe-path checklist</h3>
             </div>
             <div class="readiness-meter">
-              <span>Readiness: <strong id="readinessScore">0 / 6</strong></span>
+              <span><span data-i18n="sec.clScore">Readiness:</span> <strong id="readinessScore">0 / 6</strong></span>
               <div class="meter-track"><div class="meter-fill" id="readinessFill"></div></div>
             </div>
           </div>
           <div class="interactive-checklist" id="safeChecklist">
-            <label class="check-item"><input type="checkbox"><span>Agent works in a branch or worktree, never directly on <code>main</code></span></label>
-            <label class="check-item"><input type="checkbox"><span>Deny rules cover secrets, prod infra, and <code>git push</code></span></label>
-            <label class="check-item"><input type="checkbox"><span>Pre-commit hooks run secret scan, lint, and unit tests</span></label>
-            <label class="check-item"><input type="checkbox"><span>CI requires passing checks and code-owner approval on sensitive paths</span></label>
-            <label class="check-item"><input type="checkbox"><span>Session and command logs are kept for audit where supported</span></label>
-            <label class="check-item"><input type="checkbox"><span>Written team policy defines what data may enter prompts</span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n-html="sec.cl1">Agent works in a branch or worktree, never directly on <code>main</code></span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n-html="sec.cl2">Deny rules cover secrets, prod infra, and <code>git push</code></span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n="sec.cl3">Pre-commit hooks run secret scan, lint, and unit tests</span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n="sec.cl4">CI requires passing checks and code-owner approval on sensitive paths</span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n="sec.cl5">Session and command logs are kept for audit where supported</span></label>
+            <label class="check-item"><input type="checkbox"><span data-i18n="sec.cl6">Written team policy defines what data may enter prompts</span></label>
           </div>
         </div>
       </div>
@@ -732,39 +737,39 @@
     <section id="rollout" class="section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="kicker">07 · Governance &amp; Rollout</span>
-          <h2>Before we start &amp; 4-week rollout</h2>
-          <p class="section-sub">Guardrails, ownership, and a measured 4-week path from pilot to team default.</p>
+          <span class="kicker" data-i18n="rol.kicker">07 · Governance &amp; Rollout</span>
+          <h2 data-i18n="rol.title">Before we start &amp; 4-week rollout</h2>
+          <p class="section-sub" data-i18n="rol.sub">Guardrails, ownership, and a measured 4-week path from pilot to team default.</p>
         </div>
 
         <div class="cards grid-2 reveal">
           <article class="card glass-card">
-            <span class="tag">Policy &amp; People</span>
-            <h3>Ground rules</h3>
+            <span class="tag" data-i18n="rol.g1tag">Policy &amp; People</span>
+            <h3 data-i18n="rol.g1title">Ground rules</h3>
             <dl class="threats mt-sm">
-              <dt>Acceptable use</dt>
-              <dd>Classify data (public, internal, confidential, regulated) and define prompt boundaries.</dd>
-              <dt>Approved tools</dt>
-              <dd>Vendor review for data residency, GDPR, retention, and contract terms.</dd>
-              <dt>Ownership</dt>
-              <dd>The developer opening the PR owns the code. AI is never the author of record.</dd>
-              <dt>Licensing &amp; IP</dt>
-              <dd>Check dependency licenses and generated code similarity; involve legal when needed.</dd>
+              <dt data-i18n="rol.g1aT">Acceptable use</dt>
+              <dd data-i18n="rol.g1aD">Classify data (public, internal, confidential, regulated) and define prompt boundaries.</dd>
+              <dt data-i18n="rol.g1bT">Approved tools</dt>
+              <dd data-i18n="rol.g1bD">Vendor review for data residency, GDPR, retention, and contract terms.</dd>
+              <dt data-i18n="rol.g1cT">Ownership</dt>
+              <dd data-i18n="rol.g1cD">The developer opening the PR owns the code. AI is never the author of record.</dd>
+              <dt data-i18n="rol.g1dT">Licensing &amp; IP</dt>
+              <dd data-i18n="rol.g1dD">Check dependency licenses and generated code similarity; involve legal when needed.</dd>
             </dl>
           </article>
 
           <article class="card glass-card">
-            <span class="tag">Process &amp; Metrics</span>
-            <h3>How we measure</h3>
+            <span class="tag" data-i18n="rol.g2tag">Process &amp; Metrics</span>
+            <h3 data-i18n="rol.g2title">How we measure</h3>
             <dl class="threats mt-sm">
-              <dt>Baseline metrics</dt>
-              <dd>Measure cycle time, review rounds, escaped defects, and effort per task first.</dd>
-              <dt>Low-risk pilot</dt>
-              <dd>Start on a repo with good test coverage, clear ownership, and no critical prod path.</dd>
-              <dt>Cost guardrails</dt>
-              <dd>Set per-user budgets, usage dashboards, and spend alerts from day one.</dd>
-              <dt>Opt-in culture</dt>
-              <dd>Share what works in a team log; review <code>AGENTS.md</code> during retros.</dd>
+              <dt data-i18n="rol.g2aT">Baseline metrics</dt>
+              <dd data-i18n="rol.g2aD">Measure cycle time, review rounds, escaped defects, and effort per task first.</dd>
+              <dt data-i18n="rol.g2bT">Low-risk pilot</dt>
+              <dd data-i18n="rol.g2bD">Start on a repo with good test coverage, clear ownership, and no critical prod path.</dd>
+              <dt data-i18n="rol.g2cT">Cost guardrails</dt>
+              <dd data-i18n="rol.g2cD">Set per-user budgets, usage dashboards, and spend alerts from day one.</dd>
+              <dt data-i18n="rol.g2dT">Opt-in culture</dt>
+              <dd data-i18n-html="rol.g2dD">Share what works in a team log; review <code>AGENTS.md</code> during retros.</dd>
             </dl>
           </article>
         </div>
@@ -772,24 +777,24 @@
         <!-- Where to be careful -->
         <div class="cards grid-4 mt-lg reveal">
           <article class="card glass-card">
-            <span class="tag tag-amber">Senior Review</span>
-            <h3>High-risk logic</h3>
-            <p>Auth, authorization, cryptography, payments, and data-deletion flows.</p>
+            <span class="tag tag-amber" data-i18n="rol.w1tag">Senior Review</span>
+            <h3 data-i18n="rol.w1title">High-risk logic</h3>
+            <p data-i18n="rol.w1body">Auth, authorization, cryptography, payments, and data-deletion flows.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-red">Avoid Unsupervised</span>
-            <h3>Critical ops</h3>
-            <p>Production hotfixes, infra changes, and migrations on real data.</p>
+            <span class="tag tag-red" data-i18n="rol.w2tag">Avoid Unsupervised</span>
+            <h3 data-i18n="rol.w2title">Critical ops</h3>
+            <p data-i18n="rol.w2body">Production hotfixes, infra changes, and migrations on real data.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-green">Early Wins</span>
-            <h3>Great starting tasks</h3>
-            <p>Unit tests, docs, test-backed refactors, boilerplate, code explanations.</p>
+            <span class="tag tag-green" data-i18n="rol.w3tag">Early Wins</span>
+            <h3 data-i18n="rol.w3title">Great starting tasks</h3>
+            <p data-i18n="rol.w3body">Unit tests, docs, test-backed refactors, boilerplate, code explanations.</p>
           </article>
           <article class="card glass-card">
-            <span class="tag tag-cyan">Anti-Patterns</span>
-            <h3>Watch out for</h3>
-            <p>Merging unread code, weakening failing tests, or skipping PR review.</p>
+            <span class="tag tag-cyan" data-i18n="rol.w4tag">Anti-Patterns</span>
+            <h3 data-i18n="rol.w4title">Watch out for</h3>
+            <p data-i18n="rol.w4body">Merging unread code, weakening failing tests, or skipping PR review.</p>
           </article>
         </div>
 
@@ -797,16 +802,16 @@
         <div class="interactive-panel mt-lg reveal">
           <div class="panel-head">
             <div>
-              <span class="kicker">Execution Plan</span>
-              <h3>Interactive 4-Week Rollout</h3>
+              <span class="kicker" data-i18n="rol.exKicker">Execution Plan</span>
+              <h3 data-i18n="rol.exTitle">Interactive 4-Week Rollout</h3>
             </div>
-            <p class="muted">Click each week to inspect milestones and exit criteria.</p>
+            <p class="muted" data-i18n="rol.exSub">Click each week to inspect milestones and exit criteria.</p>
           </div>
           <div class="rollout-tabs" id="rolloutTabs">
-            <button class="rollout-btn active" data-week="0">Week 1 · Pilot</button>
-            <button class="rollout-btn" data-week="1">Week 2 · Skills &amp; Agents</button>
-            <button class="rollout-btn" data-week="2">Week 3 · Team &amp; CI</button>
-            <button class="rollout-btn" data-week="3">Week 4 · Measure &amp; Decide</button>
+            <button class="rollout-btn active" data-week="0" data-i18n="rol.wk1">Week 1 · Pilot</button>
+            <button class="rollout-btn" data-week="1" data-i18n="rol.wk2">Week 2 · Skills &amp; Agents</button>
+            <button class="rollout-btn" data-week="2" data-i18n="rol.wk3">Week 3 · Team &amp; CI</button>
+            <button class="rollout-btn" data-week="3" data-i18n="rol.wk4">Week 4 · Measure &amp; Decide</button>
           </div>
           <div class="rollout-detail" id="rolloutDetail">
             <!-- Populated by JS -->
@@ -816,15 +821,15 @@
         <!-- Closing CTA -->
         <div class="closing-banner mt-lg reveal">
           <div>
-            <span class="kicker">Next Steps</span>
-            <h2>Let's start safely</h2>
+            <span class="kicker" data-i18n="rol.clKicker">Next Steps</span>
+            <h2 data-i18n="rol.clTitle">Let's start safely</h2>
             <ul class="clean-list mt-sm">
-              <li>Agree on the acceptable use policy and approved tools this week</li>
-              <li>Choose the pilot repo and 2 to 3 pilot developers</li>
-              <li>Capture baseline metrics before the first AI-assisted task</li>
+              <li data-i18n="rol.cl1">Agree on the acceptable use policy and approved tools this week</li>
+              <li data-i18n="rol.cl2">Choose the pilot repo and 2 to 3 pilot developers</li>
+              <li data-i18n="rol.cl3">Capture baseline metrics before the first AI-assisted task</li>
             </ul>
           </div>
-          <a href="#setup-examples" class="btn btn-primary">Revisit Setup Lab ↑</a>
+          <a href="#setup-examples" class="btn btn-primary" data-i18n="rol.clBtn">Revisit Setup Lab ↑</a>
         </div>
       </div>
     </section>
@@ -832,8 +837,8 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>AI.DEV // PLAYBOOK — Educational Engineering Guide</span>
-      <span class="muted">Built for Claude Code, OpenCode &amp; Pi workflows</span>
+      <span data-i18n="footer.left">AI.DEV // PLAYBOOK — Educational Engineering Guide</span>
+      <span class="muted" data-i18n="footer.right">Built for Claude Code, OpenCode &amp; Pi workflows</span>
     </div>
   </footer>
 
